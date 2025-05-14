@@ -1,0 +1,215 @@
+/* Контейнер для Blockly */
+.blockly-container {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+    width: 100%;
+    height: 100%;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Основные цвета блоков */
+.blocklyMainBackground {
+    fill: var(--bg-primary) !important;
+}
+
+.blocklyToolboxDiv {
+    background-color: var(--bg-primary) !important;
+    border-right: 1px solid var(--border-color) !important;
+}
+
+/* Стили для рабочей области */
+.blocklySvg {
+    background-color: var(--bg-primary) !important;
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+    margin: 1.25rem !important;
+}
+
+/* Стили для блоков */
+.blocklyBlockBackground {
+    fill: var(--bg-secondary) !important;
+    stroke: var(--border-color) !important;
+    stroke-width: 1px !important;
+}
+
+.blocklyPath {
+    stroke: var(--border-color) !important;
+    stroke-width: 1px !important;
+}
+
+/* Стили для текста */
+.blocklyText {
+    fill: var(--text-primary) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Стили для полей ввода */
+.blocklyEditableText {
+    fill: var(--primary-color) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Стили для выбранного блока */
+.blocklySelected > .blocklyPath {
+    stroke: var(--primary-color) !important;
+    stroke-width: 2px !important;
+}
+
+/* Стили для области перетаскивания */
+.blocklyDropDownDiv {
+    background-color: var(--bg-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* Стили для меню */
+.blocklyContextMenu {
+    background-color: var(--bg-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.blocklyContextMenu .goog-menuitem {
+    color: var(--text-primary) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.blocklyContextMenu .goog-menuitem:hover {
+    background-color: var(--bg-secondary) !important;
+    color: var(--primary-color) !important;
+}
+
+/* Стили для категорий в тулбоксе */
+.blocklyTreeRow {
+    padding: 8px !important;
+    margin-bottom: 4px !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Inter', sans-serif !important;
+    background-color: var(--bg-primary) !important;
+    transition: var(--transition) !important;
+    line-height: 1.4 !important;
+}
+
+.blocklyTreeRow:hover {
+    background-color: var(--bg-secondary) !important;
+    color: var(--primary-color) !important;
+}
+
+.blocklyTreeSelected {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.blocklyTreeSelected:hover {
+    background-color: var(--primary-hover) !important;
+    color: white !important;
+}
+
+/* Стили для ползунков прокрутки */
+.blocklyScrollbarHandle {
+    fill: var(--border-color) !important;
+}
+
+.blocklyScrollbarHandle:hover {
+    fill: var(--primary-color) !important;
+}
+
+/* Стили для соединений */
+.blocklyConnection {
+    stroke: var(--border-color) !important;
+    stroke-width: 1px !important;
+}
+
+.blocklyConnectionHighlight {
+    stroke: var(--primary-color) !important;
+    stroke-width: 2px !important;
+}
+
+/* Стили для полей ввода */
+.blocklyEditableText > rect {
+    fill: var(--bg-secondary) !important;
+    stroke: var(--border-color) !important;
+    stroke-width: 1px !important;
+    rx: 4px !important;
+    ry: 4px !important;
+}
+
+/* Стили для комментариев */
+.blocklyCommentTextarea {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    font-family: 'Inter', sans-serif !important;
+    line-height: 1.4 !important;
+}
+
+/* Стили для предупреждений */
+.blocklyWarningIndicator {
+    fill: var(--warning-color) !important;
+}
+
+/* Стили для ошибок */
+.blocklyErrorIndicator {
+    fill: var(--error-color) !important;
+}
+
+/* Дополнительные стили для лучшей читаемости */
+.blocklyFieldText {
+    font-family: 'Inter', sans-serif !important;
+    line-height: 1.4 !important;
+}
+
+.blocklyFieldDropdown {
+    font-family: 'Inter', sans-serif !important;
+    line-height: 1.4 !important;
+}
+
+.blocklyFieldNumber {
+    font-family: 'Inter', sans-serif !important;
+    line-height: 1.4 !important;
+}
+
+.blocklyFieldVariable {
+    font-family: 'Inter', sans-serif !important;
+    line-height: 1.4 !important;
+}
+
+/* Настройки размеров блоков */
+.blocklyBlockSvg {
+    padding: 8px !important;
+}
+
+.blocklyBlockSvg .blocklyPath {
+    stroke-width: 1px !important;
+}
+
+.blocklyBlockSvg .blocklyPathLight {
+    stroke-width: 1px !important;
+}
+
+.blocklyBlockSvg .blocklyPathDark {
+    stroke-width: 1px !important;
+}
+
+/* Настройки отступов в блоках */
+.blocklyBlockSvg .blocklyText {
+    padding: 4px 8px !important;
+}
+
+.blocklyBlockSvg .blocklyEditableText {
+    padding: 4px 8px !important;
+}
+
+/* Настройки размеров полей ввода */
+.blocklyBlockSvg .blocklyEditableText > rect {
+    height: 24px !important;
+    rx: 4px !important;
+    ry: 4px !important;
+} 

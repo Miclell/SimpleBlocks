@@ -1,0 +1,17 @@
+services:
+  simpleblocks-client:
+    build:
+      context: ..
+      dockerfile: src/SimpleBlocks.Client/Dockerfile
+      args:
+        API_BASE_URL: ${API_BASE_URL}
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    networks:
+      - simpleblocks-network
+
+networks:
+  simpleblocks-network:
+    driver: bridge 

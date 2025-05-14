@@ -1,0 +1,37 @@
+﻿@using SimpleBlocks.Client.Services
+@inject LanguageService LanguageService
+
+<div class="language-selector">
+    <label for="languageSelect">Выберите язык:</label>
+    <div class="language-controls">
+        <select id="languageSelect" class="select-modern language-select" @bind="SelectedLanguage">
+            @if (_availableLanguages != null)
+            {
+                @foreach (var language in _availableLanguages)
+                {
+                    <option value="@language">@language</option>
+                }
+            }
+        </select>
+        <button class="btn-modern primary load-button" @onclick="OnLoadLanguageClicked">
+            Загрузить язык
+        </button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public EventCallback<string> OnLanguageLoaded { get; set; }
+    private string SelectedLanguage { get; set; } = string.Empty;
+    private IEnumerable<string>? _availableLanguages;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _availableLanguages = await LanguageService.GetAvailableLanguagesAsync();
+        SelectedLanguage = _availableLanguages?.FirstOrDefault() ?? string.Empty;
+    }
+
+    private async Task OnLoadLanguageClicked()
+    {
+        await OnLanguageLoaded.InvokeAsync(SelectedLanguage);
+    }
+}

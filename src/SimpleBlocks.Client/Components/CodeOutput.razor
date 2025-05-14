@@ -1,0 +1,57 @@
+﻿@using SimpleBlocks.Client.Services
+@inject ClipboardService ClipboardService
+@inject IJSRuntime JSRuntime
+
+<div class="flex-grow-1 d-flex flex-column">
+    <div class="flex-grow-1 position-relative code-container">
+        <div class="line-numbers">
+            @foreach (var line in Lines)
+            {
+                <div class="line-number">@line</div>
+            }
+        </div>
+        <pre class="language-@Language">
+            <code class="language-@Language" @ref="_codeElement">@Code</code>
+        </pre>
+        <button @onclick="CopyCodeToClipboard"
+                class="copy-button"
+                title="Копировать код">
+            <i class="far fa-copy"></i>
+            <span>Копировать</span>
+        </button>
+    </div>
+</div>
+
+@code {
+    private ElementReference _codeElement;
+    private string _currentCode = string.Empty;
+    private string _currentLanguage = string.Empty;
+
+    [Parameter] public string Code { get; set; } = string.Empty;
+    [Parameter] public string Language { get; set; } = string.Empty;
+
+    private List<int> Lines => Enumerable.Range(1, Code.Split('\n').Length).ToList();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Code != _currentCode || Language != _currentLanguage)
+        {
+            _currentCode = Code;
+            _currentLanguage = Language;
+            
+            await Task.Delay(100);
+            await UpdateCodeHighlighting();
+            StateHasChanged();
+        }
+    }
+
+    private async Task UpdateCodeHighlighting()
+    {
+        await JSRuntime.InvokeVoidAsync("setCodeAndHighlight", _codeElement, Code, Language);
+    }
+
+    private async Task CopyCodeToClipboard()
+    {
+        await ClipboardService.CopyToClipboard(Code);
+    }
+}

@@ -1,0 +1,81 @@
+{
+  "NameConfiguration": {
+    "name": "Go",
+    "prism": "go",
+    "judge0": 95
+  },
+  "SyntaxConfiguration": {
+    "indent": "\t",
+    "block_start": "{",
+    "block_end": "}",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.Value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.Value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.Value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.Operand}"
+  },
+  "IfStatement": {
+    "schema": "if {inputFields.Condition} {block_start}{body}{block_end}"
+  },
+  "ElseStatement": {
+    "schema": "else {block_start}{body}{block_end}"
+  },
+  "ForLoop": {
+    "schema": "for {inputFields.Init}; {inputFields.Condition}; {inputFields.Update} {block_start}{body}{block_end}"
+  },
+  "WhileLoop": {
+    "schema": "for {inputFields.Condition} {block_start}{body}{block_end}"
+  },
+  "Print": {
+    "schema": "fmt.Println({inputFields.Value})"
+  },
+  "Input": {
+    "schema": "func() string { var s string; fmt.Scanln(&s); return s }()",
+    "languageImports": ["fmt"]
+  },
+  "VariableDeclaration": {
+    "schema": "var {inputFields.Name} {inputFields.Type} = {inputFields.Value}"
+  },
+  "Assignment": {
+    "schema": "{inputFields.Variable} = {inputFields.Value}"
+  },
+  "ArrayDeclaration": {
+    "schema": "var {inputFields.Name} = []{inputFields.Type}{inputFields.Values}"
+  },
+  "FunctionDefinition": {
+    "schema": "func {inputFields.Name}({inputFields.Params}) {inputFields.ReturnType} {block_start}{body}{block_end}"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.Value}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.Name}({inputFields.Args})"
+  },
+  "TryCatch": {
+    "schema": "func() { {block_start} defer func() { if {inputFields.ErrorVar} := recover(); {inputFields.ErrorVar} != nil {block_start}{body}{block_end} }() {inputFields.TryBody} {block_end} }()"
+  },
+  "Throw": {
+    "schema": "panic({inputFields.Error})"
+  },
+  "Comment": {
+    "schema": "// {inputFields.Text}"
+  }
+}
