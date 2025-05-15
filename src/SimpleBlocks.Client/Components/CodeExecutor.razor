@@ -16,7 +16,20 @@
                     }
                     else
                     {
-                        @ExecutionResult.DecodedError
+                        @if (!string.IsNullOrEmpty(ExecutionResult.DecodedCompileOutput))
+                        {
+                            <div class="compile-error">
+                                <strong>Ошибка компиляции:</strong>
+                                @ExecutionResult.DecodedCompileOutput
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(ExecutionResult.DecodedError))
+                        {
+                            <div class="runtime-error">
+                                <strong>Ошибка выполнения:</strong>
+                                @ExecutionResult.DecodedError
+                            </div>
+                        }
                     }
                 }
                 else
@@ -50,7 +63,7 @@
         IsExecuting = true;
         ExecutionResult = null;
         StateHasChanged();
-
+        
         try
         {
             var result = await ExecutionService.ExecuteCodeAsync(Code, LanguageId);
@@ -76,7 +89,8 @@
     {
         if (ExecutionResult != null)
         {
-            var textToCopy = ExecutionResult.IsSuccess ? ExecutionResult.DecodedOutput : ExecutionResult.DecodedError;
+            var textToCopy = ExecutionResult.IsSuccess ? 
+                ExecutionResult.DecodedOutput : ExecutionResult.DecodedCompileOutput ?? ExecutionResult.DecodedError;
             await ClipboardService.CopyToClipboard(textToCopy ?? "");
         }
     }
