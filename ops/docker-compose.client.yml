@@ -14,4 +14,4 @@ services:
 
 networks:
   simpleblocks-network:
-    driver: bridge 
+    driver: bridge

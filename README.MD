@@ -49,39 +49,41 @@
 
 #### 3. **Настройте ops/judge0.conf и запустите Judge0 (через Docker)**:
 
-    ```bash
-    cd ops  
-    docker-compose -f docker-compose.judge0.yml up -d  
-    ```
+  ```bash
+  cd ops  
+  docker-compose -f docker-compose.judge0.yml up -d  
+  ```
+
 #### 4. **Установка .NET 9**.
 
    [Скачать SDK](https://dotnet.microsoft.com/ru-ru/download)
 
 #### 5. **Запустите сервер**:
 
-    ```bash
-    cd src/SimpleBlocks.Server
-    dotnet restore # Восстановление зависимостей
-    dotnet ef database update # Применение миграций
-    dotnet run
-    ```
+  ```bash
+  cd src/SimpleBlocks.Server
+  dotnet restore # Восстановление зависимостей
+  dotnet ef database update # Применение миграций
+  dotnet run
+  ```
 
 #### 6. **Запустите клиент**:
 
-    ```bash
-    cd ../SimpleBlocks.Client
-    dotnet restore
-    dotnet run 
-    ```
+  ```bash
+  cd ../SimpleBlocks.Client
+  dotnet restore
+  dotnet run 
+  ```
    
 ### Вариант 2: Запуск в Docker
 #### 1. **Настройте переменные конфигурации .env и judge0.conf в ops**
 #### 2. **Запустите проект при помощи `docker-compose`**
-    ```bash
-    cd ops  
 
-    docker-compose -f docker-compose.postgres.yml -f docker-compose.judge0.yml -f docker-compose.server.yml -f docker-compose.client.yml up -d
-    ```
+  ```bash
+  cd ops  
+
+  docker-compose -f docker-compose.postgres.yml -f docker-compose.judge0.yml -f docker-compose.server.yml -f docker-compose.client.yml up -d
+  ```
 
 ---
 
