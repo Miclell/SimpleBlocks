@@ -18,7 +18,7 @@ public record Response(
     {
         if (string.IsNullOrEmpty(base64String))
             return string.Empty;
-
+        
         try
         {
             var bytes = Convert.FromBase64String(base64String);
