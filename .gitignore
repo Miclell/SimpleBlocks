@@ -12,6 +12,7 @@ riderModule.iml
 
 .vs/
 .vscode/
+.override/
 *.suo
 *.user
 *.userosscache
