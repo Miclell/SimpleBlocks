@@ -1,0 +1,93 @@
+{
+  "NameConfiguration": {
+    "name": "C#",
+    "prism": "csharp",
+    "judge0": 51
+  },
+  "SyntaxConfiguration": {
+    "indent": "    ",
+    "block_start": "{",
+    "block_end": "}",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Print": {
+    "schema": "Console.WriteLine({inputFields.content}){statement_separator}",
+    "languageImports": [
+      "using System;",
+      "using System.Linq;"
+    ]
+  },
+  "IfStatement": {
+    "schema": "if ({inputFields.condition}) {block_start}\n{body}\n{block_end}"
+  },
+  "VariableDeclaration": {
+    "schema": "{inputFields.type} {inputFields.name} {assigment_symbol} {inputFields.value}{statement_separator}"
+  },
+  "VariableSet": {
+    "schema": "{inputFields.name} {assigment_symbol} {inputFields.value}{statement_separator}"
+  },
+  "VariableGet": {
+    "schema": "{inputFields.name}"
+  },
+  "MathArithmetic": {
+    "schema": "{inputFields.A} {inputFields.OP} {inputFields.B}"
+  },
+  "LogicCompare": {
+    "schema": "{inputFields.A} {inputFields.OP} {inputFields.B}"
+  },
+  "Boolean": {
+    "schema": "{inputFields.BOOL}"
+  },
+  "WhileLoop": {
+    "schema": "while ({inputFields.condition}) {block_start}\n{body}\n{block_end}"
+  },
+  "ForLoop": {
+    "schema": "for (int {inputFields.var} = {inputFields.start}; {inputFields.var} < {inputFields.end}; {inputFields.var}++) {block_start}\n{body}\n{block_end}"
+  },
+  "FunctionDefinition": {
+    "schema": "{inputFields.returnType} {inputFields.name}() {block_start}\n{body}\n{block_end}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.name}(){statement_separator}"
+  },
+  "Comment": {
+    "schema": "// {inputFields.text}"
+  },
+  "ArrayDeclaration": {
+    "schema": "{inputFields.type}[] {inputFields.name} {assigment_symbol} new {inputFields.type}[{inputFields.size}]{statement_separator}"
+  },
+  "ArraySet": {
+    "schema": "{inputFields.name}[{inputFields.index}] {assigment_symbol} {inputFields.value}{statement_separator}"
+  },
+  "ArrayGet": {
+    "schema": "{inputFields.name}[{inputFields.index}]"
+  },
+  "Text": {
+    "schema": "\"{inputFields.TEXT}\""
+  },
+  "ClassDefinition": {
+    "schema": "public class {inputFields.name} {block_start}\n{body}\n{block_end}"
+  },
+  "ClassField": {
+    "schema": "private {inputFields.type} {inputFields.name}{statement_separator}"
+  },
+  "ClassProperty": {
+    "schema": "public {inputFields.type} {inputFields.name} {block_start} get; set; {block_end}"
+  },
+  "Constructor": {
+    "schema": "public {inputFields.className}() {block_start}\n{body}\n{block_end}"
+  },
+  "Method": {
+    "schema": "public {inputFields.returnType} {inputFields.name}({inputFields.parameters}) {block_start}\n{body}\n{block_end}"
+  },
+  "MethodCall": {
+    "schema": "{inputFields.name}({inputFields.arguments}){statement_separator}"
+  },
+  "Return": {
+    "schema": "return {inputFields.value}{statement_separator}"
+  },
+  "MethodParameter": {
+    "schema": "{inputFields.type} {inputFields.name}"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "NameConfiguration": {
+    "name": "Rust",
+    "prism": "rust",
+    "judge0": 73
+  },
+  "SyntaxConfiguration": {
+    "indent": "    ",
+    "block_start": "{",
+    "block_end": "}",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.operand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "IfStatement": {
+    "schema": "if {inputFields.condition} {block_start}\n{body}\n{block_end}"
+  },
+  "ElseStatement": {
+    "schema": "else {block_start}\n{body}\n{block_end}"
+  },
+  "WhileLoop": {
+    "schema": "while {inputFields.condition} {block_start}\n{body}\n{block_end}"
+  },
+  "ForLoop": {
+    "schema": "for {inputFields.variable} in {inputFields.start}..{inputFields.end} {block_start}\n{body}\n{block_end}"
+  },
+  "Print": {
+    "schema": "println!(\"{}\", {inputFields.value});"
+  },
+  "Input": {
+    "schema": "std::io::stdin().read_line(&mut String::new()).unwrap()"
+  },
+  "VariableDeclaration": {
+    "schema": "let {inputFields.name}: {inputFields.type} = {inputFields.value};"
+  },
+  "Assignment": {
+    "schema": "{inputFields.variable} = {inputFields.value};"
+  },
+  "ArrayDeclaration": {
+    "schema": "let {inputFields.name}: [{inputFields.type}; {inputFields.size}] = [{inputFields.values}];"
+  },
+  "FunctionDefinition": {
+    "schema": "fn {inputFields.name}({body}) -> {inputFields.returnType} {block_start}\n{body}\n{block_end}"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.value};"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.name}({body})"
+  },
+  "TryCatch": {
+    "schema": "match {block_start}\n{inputFields.tryBody}\n{block_end} {block_start}\n{inputFields.catchBody}\n{block_end}"
+  },
+  "Throw": {
+    "schema": "panic!(\"{inputFields.message}\");"
+  }
+}

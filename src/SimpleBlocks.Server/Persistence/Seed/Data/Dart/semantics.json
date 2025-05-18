@@ -1,0 +1,107 @@
+{
+  "NameConfiguration": {
+    "name": "Dart",
+    "prism": "dart",
+    "judge0": "72"
+  },
+  "SyntaxConfiguration": {
+    "indent": "  ",
+    "block_start": "",
+    "block_end": "",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator.toLowerCase()} {inputFields.rightOperand}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.operand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "IfStatement": {
+    "schema": "if ({inputFields.condition}) { {body} }"
+  },
+  "ElseStatement": {
+    "schema": "else { {body} }"
+  },
+  "ForLoop": {
+    "schema": "for ({inputFields.initialization}; {inputFields.condition}; {inputFields.increment}) { {body} }"
+  },
+  "ForEachLoop": {
+    "schema": "for (var {inputFields.item} in {inputFields.collection}) { {body} }"
+  },
+  "WhileLoop": {
+    "schema": "while ({inputFields.condition}) { {body} }"
+  },
+  "PrintStatement": {
+    "schema": "print({inputFields.value});"
+  },
+  "InputStatement": {
+    "schema": "{inputFields.variable} = stdin.readLineSync();"
+  },
+  "VariableDeclaration": {
+    "schema": "{inputFields.type} {inputFields.name} = {inputFields.value};"
+  },
+  "VariableAssignment": {
+    "schema": "{inputFields.name} = {inputFields.value};"
+  },
+  "ArrayDeclaration": {
+    "schema": "List<{inputFields.type}> {inputFields.name} = [{inputFields.items}];"
+  },
+  "ArrayAdd": {
+    "schema": "{inputFields.array}.add({inputFields.item});"
+  },
+  "ArrayRemove": {
+    "schema": "{inputFields.array}.remove({inputFields.item});"
+  },
+  "ArrayAccess": {
+    "schema": "{inputFields.array}[{inputFields.index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "{inputFields.returnType} {inputFields.name}({inputFields.parameters}) { {body} }"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.name}({inputFields.arguments});"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.value};"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.name} { {body} }"
+  },
+  "ObjectInstantiation": {
+    "schema": "{inputFields.className} {inputFields.objectName} = {inputFields.className}();"
+  },
+  "MethodDeclaration": {
+    "schema": "{inputFields.returnType} {inputFields.name}({inputFields.parameters}) { {body} }"
+  },
+  "PropertyAccess": {
+    "schema": "{inputFields.object}.{inputFields.property}"
+  },
+  "TryCatch": {
+    "schema": "try { {inputFields.tryBody} } catch ({inputFields.exception}) { {inputFields.catchBody} }"
+  },
+  "ThrowStatement": {
+    "schema": "throw {inputFields.exception};"
+  },
+  "CommentSingle": {
+    "schema": "// {inputFields.text}"
+  },
+  "CommentMulti": {
+    "schema": "/* {inputFields.text} */"
+  }
+}

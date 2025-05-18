@@ -1,0 +1,97 @@
+@using SimpleBlocks.Client.Services
+@using SimpleBlocks.Shared.Dto
+@using SimpleBlocks.Shared.Dto.CodeExecution
+@inject ExecutionService ExecutionService
+@inject ClipboardService ClipboardService
+
+<div class="flex-grow-1 d-flex flex-column">
+    <div class="flex-grow-1 position-relative code-container">
+        <pre class="language-plaintext">
+            <code class="language-plaintext">
+                @if (ExecutionResult != null)
+                {
+                    @if (ExecutionResult.IsSuccess)
+                    {
+                        @ExecutionResult.DecodedOutput
+                    }
+                    else
+                    {
+                        @if (!string.IsNullOrEmpty(ExecutionResult.DecodedCompileOutput))
+                        {
+                            <div class="compile-error">
+                                <strong>Ошибка компиляции:</strong>
+                                @ExecutionResult.DecodedCompileOutput
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(ExecutionResult.DecodedError))
+                        {
+                            <div class="runtime-error">
+                                <strong>Ошибка выполнения:</strong>
+                                @ExecutionResult.DecodedError
+                            </div>
+                        }
+                    }
+                }
+                else
+                {
+                    <span class="text-muted">Здесь будет отображаться результат выполнения кода...</span>
+                }
+            </code>
+        </pre>
+        <button @onclick="CopyResultToClipboard"
+                class="copy-button"
+                title="Копировать результат">
+            <i class="far fa-copy"></i>
+            <span>Копировать</span>
+        </button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Code { get; set; } = string.Empty;
+    [Parameter] public int LanguageId { get; set; }
+    [Parameter] public EventCallback OnExecute { get; set; }
+    [Parameter] public bool IsExecuting { get; set; }
+
+    private Response? ExecutionResult { get; set; }
+
+    public async Task ExecuteCode()
+    {
+        if (string.IsNullOrEmpty(Code) || LanguageId == 0)
+            return;
+
+        IsExecuting = true;
+        ExecutionResult = null;
+        StateHasChanged();
+        
+        try
+        {
+            var result = await ExecutionService.ExecuteCodeAsync(Code, LanguageId);
+            ExecutionResult = result;
+        }
+        catch (Exception ex)
+        {
+            ExecutionResult = new Response(
+                Output: string.Empty,
+                Error: $"Ошибка выполнения: {ex.Message}",
+                CompileOutput: null,
+                Message: null,
+                IsSuccess: false);
+        }
+        finally
+        {
+            IsExecuting = false;
+            StateHasChanged();
+        }
+    }
+    
+    private async Task CopyResultToClipboard()
+    {
+        if (ExecutionResult != null)
+        {
+            var textToCopy = ExecutionResult.IsSuccess ? 
+                ExecutionResult.DecodedOutput : ExecutionResult.DecodedCompileOutput ?? ExecutionResult.DecodedError;
+            await ClipboardService.CopyToClipboard(textToCopy ?? "");
+        }
+    }
+} 

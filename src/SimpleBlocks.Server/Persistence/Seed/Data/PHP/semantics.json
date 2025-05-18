@@ -1,0 +1,110 @@
+{
+  "NameConfiguration": {
+    "name": "PHP",
+    "prism": "php",
+    "judge0": "68"
+  },
+  "SyntaxConfiguration": {
+    "indent": "    ",
+    "block_start": "{",
+    "block_end": "}",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.left} {inputFields.operator} {inputFields.right}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.left} {inputFields.operator} {inputFields.right}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.value}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.left} {inputFields.operator} {inputFields.right}"
+  },
+  "IfStatement": {
+    "schema": "if ({inputFields.condition}) {inputFields.block_start}{body}{inputFields.block_end}"
+  },
+  "ElseStatement": {
+    "schema": "else {inputFields.block_start}{body}{inputFields.block_end}"
+  },
+  "ForLoop": {
+    "schema": "for (${inputFields.variable} = {inputFields.start}; ${inputFields.variable} <= {inputFields.end}; ${inputFields.variable} += {inputFields.step}) {inputFields.block_start}{body}{inputFields.block_end}"
+  },
+  "ForEachLoop": {
+    "schema": "foreach ({inputFields.collection} as ${inputFields.item}) {inputFields.block_start}{body}{inputFields.block_end}"
+  },
+  "WhileLoop": {
+    "schema": "while ({inputFields.condition}) {inputFields.block_start}{body}{inputFields.block_end}"
+  },
+  "Print": {
+    "schema": "echo {inputFields.value}{inputFields.statement_separator}"
+  },
+  "Input": {
+    "schema": "fgets(STDIN)"
+  },
+  "VariableDeclaration": {
+    "schema": "${inputFields.name} {inputFields.assigment_symbol} {inputFields.value}{inputFields.statement_separator}"
+  },
+  "Assignment": {
+    "schema": "${inputFields.name} {inputFields.assigment_symbol} {inputFields.value}{inputFields.statement_separator}"
+  },
+  "ArrayDeclaration": {
+    "schema": "${inputFields.name} = array(){inputFields.statement_separator}"
+  },
+  "AddToArray": {
+    "schema": "array_push(${inputFields.array}, {inputFields.value}){inputFields.statement_separator}"
+  },
+  "RemoveFromArray": {
+    "schema": "array_splice(${inputFields.array}, array_search({inputFields.value}, ${inputFields.array}), 1){inputFields.statement_separator}"
+  },
+  "ArrayAccess": {
+    "schema": "${inputFields.array}[{inputFields.index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "function {inputFields.name}({inputFields.params}) {inputFields.block_start}{body}{inputFields.block_end}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.name}({inputFields.args}){inputFields.statement_separator}"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.value}{inputFields.statement_separator}"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.name} {inputFields.block_start}{body}{inputFields.block_end}"
+  },
+  "ObjectInstantiation": {
+    "schema": "new {inputFields.className}(){inputFields.statement_separator}"
+  },
+  "MethodDeclaration": {
+    "schema": "public function {inputFields.name}({inputFields.params}) {inputFields.block_start}{body}{inputFields.block_end}"
+  },
+  "PropertyMethodAccess": {
+    "schema": "{inputFields.object}->{inputFields.member}"
+  },
+  "TryCatch": {
+    "schema": "try {inputFields.block_start}{inputFields.tryBody}{inputFields.block_end} catch ({inputFields.exception} $e) {inputFields.block_start}{inputFields.catchBody}{inputFields.block_end}"
+  },
+  "ThrowStatement": {
+    "schema": "throw {inputFields.exception}{inputFields.statement_separator}"
+  },
+  "TypeDeclaration": {
+    "schema": "{inputFields.type} ${inputFields.name}{inputFields.statement_separator}"
+  },
+  "SingleLineComment": {
+    "schema": "// {inputFields.text}"
+  },
+  "MultiLineComment": {
+    "schema": "/* {inputFields.text} */"
+  }
+}

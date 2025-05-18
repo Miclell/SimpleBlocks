@@ -1,0 +1,194 @@
+.code-executor {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.execution-controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.language-select {
+    flex: 1;
+    max-width: 200px;
+}
+
+.execution-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: white;
+    background: var(--primary-color);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.execution-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.execution-button:active {
+    transform: translateY(0);
+}
+
+.execution-button i {
+    font-size: 0.875rem;
+}
+
+.execution-result {
+    margin-top: var(--spacing-md);
+    padding: 1.25rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.result-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.result-content {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.result-error {
+    color: var(--error-color);
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--bg-secondary);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.375rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.code-container {
+    display: table;
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+    width: 100%;
+    height: 100%;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+pre {
+    display: table-cell;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    background: var(--bg-primary);
+    padding: 1.25rem;
+    height: 100%;
+    max-height: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+    white-space: pre;
+    width: 100%;
+}
+
+pre::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+    margin: 0 1rem;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+    min-width: 40px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+pre::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+code {
+    display: block;
+    white-space: pre;
+    line-height: 1.6;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.95em;
+    min-width: 100%;
+    width: max-content;
+    overflow-x: auto;
+}
+
+.copy-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.375rem 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.copy-button:hover {
+    background: var(--bg-secondary);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.copy-button:active {
+    transform: translateY(0);
+}
+
+.copy-button i {
+    font-size: 0.875rem;
+} 

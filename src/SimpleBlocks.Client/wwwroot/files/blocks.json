@@ -1,0 +1,304 @@
+{
+  "blocks": [
+    {
+      "type": "Print",
+      "message0": "Print %1",
+      "args0": [{ "type": "input_value", "name": "content" }],
+      "colour": 160,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "Text",
+      "message0": "text %1",
+      "args0": [{ "type": "field_input", "name": "TEXT", "text": "hello" }],
+      "output": "String",
+      "colour": 20
+    },
+    {
+      "type": "IfStatement",
+      "message0": "if %1 then %2",
+      "args0": [
+        { "type": "input_value", "name": "condition" },
+        { "type": "input_statement", "name": "body" }
+      ],
+      "colour": 210,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "LogicCompare",
+      "message0": "%1 %2 %3",
+      "args0": [
+        { "type": "input_value", "name": "A" },
+        {
+          "type": "field_dropdown",
+          "name": "OP",
+          "options": [["=", "=="], ["≠", "!="], ["<", "<"], ["≤", "<="], [">", ">"], ["≥", ">="]]
+        },
+        { "type": "input_value", "name": "B" }
+      ],
+      "output": "Boolean",
+      "colour": 210
+    },
+    {
+      "type": "Boolean",
+      "message0": "boolean %1",
+      "args0": [
+        {
+          "type": "field_checkbox",
+          "name": "BOOL",
+          "checked": true
+        }
+      ],
+      "output": "Boolean",
+      "colour": 210
+    },
+    {
+      "type": "VariableDeclaration",
+      "message0": "declare %1 %2 = %3",
+      "args0": [
+        { "type": "field_input", "name": "type", "text": "int" },
+        { "type": "field_input", "name": "name", "text": "x" },
+        { "type": "input_value", "name": "value" }
+      ],
+      "colour": 330,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "VariableSet",
+      "message0": "set %1 = %2",
+      "args0": [
+        { "type": "field_input", "name": "name", "text": "x" },
+        { "type": "input_value", "name": "value" }
+      ],
+      "colour": 330,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "VariableGet",
+      "message0": "get %1",
+      "args0": [
+        { "type": "field_input", "name": "name", "text": "x" }
+      ],
+      "output": null,
+      "colour": 330
+    },
+    {
+      "type": "MathArithmetic",
+      "message0": "%1 %2 %3",
+      "args0": [
+        { "type": "input_value", "name": "A" },
+        {
+          "type": "field_dropdown",
+          "name": "OP",
+          "options": [["+", "+"], ["-", "-"], ["×", "*"], ["÷", "/"]]
+        },
+        { "type": "input_value", "name": "B" }
+      ],
+      "output": "Number",
+      "colour": 230
+    },
+    {
+      "type": "WhileLoop",
+      "message0": "while %1 do %2",
+      "args0": [
+        { "type": "input_value", "name": "condition" },
+        { "type": "input_statement", "name": "body" }
+      ],
+      "colour": 120,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "ForLoop",
+      "message0": "for %1 from %2 to %3 do %4",
+      "args0": [
+        { "type": "field_input", "name": "var", "text": "i" },
+        { "type": "input_value", "name": "start" },
+        { "type": "input_value", "name": "end" },
+        { "type": "input_statement", "name": "body" }
+      ],
+      "colour": 120,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "Comment",
+      "message0": "comment %1",
+      "args0": [
+        { "type": "field_input", "name": "text", "text": "some comment" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 60
+    },
+    {
+      "type": "ArrayDeclaration",
+      "message0": "declare array %1 of type %2 size %3",
+      "args0": [
+        { "type": "field_input", "name": "name", "text": "arr" },
+        { "type": "field_input", "name": "type", "text": "int" },
+        { "type": "input_value", "name": "size" }
+      ],
+      "colour": 340,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "ArraySet",
+      "message0": "set %1[%2] = %3",
+      "args0": [
+        { "type": "field_input", "name": "name", "text": "arr" },
+        { "type": "input_value", "name": "index" },
+        { "type": "input_value", "name": "value" }
+      ],
+      "colour": 340,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "ArrayGet",
+      "message0": "get %1[%2]",
+      "args0": [
+        { "type": "field_input", "name": "name", "text": "arr" },
+        { "type": "input_value", "name": "index" }
+      ],
+      "output": null,
+      "colour": 340
+    },
+    {
+      "type": "ClassDefinition",
+      "message0": "class %1 %2",
+      "args0": [
+        { "type": "field_input", "name": "name", "text": "MyClass" },
+        { "type": "input_statement", "name": "body" }
+      ],
+      "colour": 280,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "ClassField",
+      "message0": "private field %1 %2",
+      "args0": [
+        { "type": "field_input", "name": "type", "text": "int" },
+        { "type": "field_input", "name": "name", "text": "myField" }
+      ],
+      "colour": 280,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "ClassProperty",
+      "message0": "public property %1 %2",
+      "args0": [
+        { "type": "field_input", "name": "type", "text": "int" },
+        { "type": "field_input", "name": "name", "text": "MyProp" }
+      ],
+      "colour": 280,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "Constructor",
+      "message0": "constructor %1 %2",
+      "args0": [
+        { "type": "field_input", "name": "className", "text": "MyClass" },
+        { "type": "input_statement", "name": "body" }
+      ],
+      "colour": 280,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "Method",
+      "message0": "method %1 returns %2 with params %3 %4",
+      "args0": [
+        { "type": "field_input", "name": "name", "text": "MyMethod" },
+        { "type": "field_input", "name": "returnType", "text": "void" },
+        { "type": "field_input", "name": "parameters", "text": "" },
+        { "type": "input_statement", "name": "body" }
+      ],
+      "colour": 210,
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "type": "MethodParameter",
+      "message0": "parameter %1 %2",
+      "args0": [
+        { "type": "field_input", "name": "type", "text": "int" },
+        { "type": "field_input", "name": "name", "text": "x" }
+      ],
+      "output": "Parameter",
+      "colour": 210
+    },
+    {
+      "type": "MethodCall",
+      "message0": "call %1 with %2",
+      "args0": [
+        { "type": "field_input", "name": "name", "text": "MyMethod" },
+        { "type": "field_input", "name": "arguments", "text": "" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 210
+    },
+    {
+      "type": "Return",
+      "message0": "return %1",
+      "args0": [
+        { "type": "input_value", "name": "value" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 210
+    }
+  ],
+  "toolbox": [
+    "<xml>",
+    "  <category name='Text'>",
+    "    <block type='Print'></block>",
+    "    <block type='Text'></block>",
+    "    <block type='Comment'></block>",
+    "  </category>",
+    "  <category name='Logic'>",
+    "    <block type='IfStatement'></block>",
+    "    <block type='LogicCompare'></block>",
+    "    <block type='Boolean'></block>",
+    "  </category>",
+    "  <category name='Loops'>",
+    "    <block type='WhileLoop'></block>",
+    "    <block type='ForLoop'></block>",
+    "  </category>",
+    "  <category name='Variables'>",
+    "    <block type='VariableDeclaration'></block>",
+    "    <block type='VariableSet'></block>",
+    "    <block type='VariableGet'></block>",
+    "  </category>",
+    "  <category name='Math'>",
+    "    <block type='MathArithmetic'></block>",
+    "  </category>",
+    "  <category name='Arrays'>",
+    "    <block type='ArrayDeclaration'></block>",
+    "    <block type='ArraySet'></block>",
+    "    <block type='ArrayGet'></block>",
+    "  </category>",
+    "  <category name='Classes'>",
+    "    <block type='ClassDefinition'></block>",
+    "    <block type='ClassField'></block>",
+    "    <block type='ClassProperty'></block>",
+    "    <block type='Constructor'></block>",
+    "  </category>",
+    "  <category name='Functions'>",
+    "    <block type='Method'></block>",
+    "    <block type='MethodParameter'></block>",
+    "    <block type='MethodCall'></block>",
+    "    <block type='Return'></block>",
+    "  </category>",
+    "</xml>"
+  ]
+}

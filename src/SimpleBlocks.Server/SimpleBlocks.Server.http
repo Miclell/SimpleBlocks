@@ -1,0 +1,6 @@
+@SimpleBlocks.Server_HostAddress = http://localhost:5187
+
+GET {{SimpleBlocks.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
