@@ -1,0 +1,104 @@
+{
+  "NameConfiguration": {
+    "name": "Python",
+    "prism": "python",
+    "judge0": "71"
+  },
+  "SyntaxConfiguration": {
+    "indent": "    ",
+    "block_start": "",
+    "block_end": "",
+    "statement_separator": "",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "NotOperation": {
+    "schema": "not {inputFields.operand}"
+  },
+  "IfStatement": {
+    "schema": "if {inputFields.condition}:\n{body}"
+  },
+  "ElseStatement": {
+    "schema": "else:\n{body}"
+  },
+  "ForLoop": {
+    "schema": "for {inputFields.variable} in range({inputFields.start}, {inputFields.end}):\n{body}"
+  },
+  "ForEachLoop": {
+    "schema": "for {inputFields.item} in {inputFields.collection}:\n{body}"
+  },
+  "WhileLoop": {
+    "schema": "while {inputFields.condition}:\n{body}"
+  },
+  "PrintStatement": {
+    "schema": "print({inputFields.value})"
+  },
+  "InputStatement": {
+    "schema": "input({inputFields.prompt})"
+  },
+  "VariableDeclaration": {
+    "schema": "{inputFields.name} = {inputFields.value}"
+  },
+  "Assignment": {
+    "schema": "{inputFields.name} = {inputFields.value}"
+  },
+  "ListDeclaration": {
+    "schema": "[{inputFields.elements}]"
+  },
+  "ListAddElement": {
+    "schema": "{inputFields.listName}.append({inputFields.element})"
+  },
+  "ListRemoveElement": {
+    "schema": "{inputFields.listName}.pop({inputFields.index})"
+  },
+  "ListAccess": {
+    "schema": "{inputFields.list}[{inputFields.index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "def {inputFields.name}({inputFields.params}):\n{body}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.name}({inputFields.args})"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.value}"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.name}:\n{body}"
+  },
+  "ObjectInstantiation": {
+    "schema": "{inputFields.className}()"
+  },
+  "MethodDeclaration": {
+    "schema": "def {inputFields.name}(self, {inputFields.params}):\n{body}"
+  },
+  "PropertyAccess": {
+    "schema": "{inputFields.object}.{inputFields.property}"
+  },
+  "TryCatch": {
+    "schema": "try:\n{inputFields.tryBody}\nexcept:\n{inputFields.catchBody}"
+  },
+  "ThrowException": {
+    "schema": "raise {inputFields.exception}"
+  },
+  "SingleLineComment": {
+    "schema": "# {inputFields.comment}"
+  }
+}

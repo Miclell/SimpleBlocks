@@ -1,0 +1,107 @@
+{
+  "NameConfiguration": {
+    "name": "Java",
+    "prism": "java",
+    "judge0": "62"
+  },
+  "SyntaxConfiguration": {
+    "indent": "    ",
+    "block_start": "{",
+    "block_end": "}",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.operand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "IfStatement": {
+    "schema": "if ({inputFields.condition}) {block_start}{body}{block_end}"
+  },
+  "ElseStatement": {
+    "schema": "else {block_start}{body}{block_end}"
+  },
+  "ForLoop": {
+    "schema": "for (int {inputFields.variable} = {inputFields.start}; {inputFields.variable2} < {inputFields.end}; {inputFields.variable3}++) {block_start}{body}{block_end}"
+  },
+  "ForEachLoop": {
+    "schema": "for ({inputFields.item} : {inputFields.collection}) {block_start}{body}{block_end}"
+  },
+  "WhileLoop": {
+    "schema": "while ({inputFields.condition}) {block_start}{body}{block_end}"
+  },
+  "PrintStatement": {
+    "schema": "System.out.println({inputFields.value});"
+  },
+  "InputStatement": {
+    "schema": "new java.util.Scanner(System.in).nextLine()"
+  },
+  "VariableDeclaration": {
+    "schema": "{inputFields.type} {inputFields.name} = {inputFields.value};"
+  },
+  "Assignment": {
+    "schema": "{inputFields.variable} = {inputFields.value};"
+  },
+  "ArrayDeclaration": {
+    "schema": "{inputFields.type}[] {inputFields.name} = new {inputFields.type}[{inputFields.size}];"
+  },
+  "AddToArray": {
+    "schema": "{inputFields.array}.add({inputFields.value});"
+  },
+  "RemoveFromArray": {
+    "schema": "{inputFields.array}.remove({inputFields.index});"
+  },
+  "ArrayAccess": {
+    "schema": "{inputFields.array}[{inputFields.index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "{inputFields.returnType} {inputFields.name}({body}) {block_start}{body}{block_end}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.name}({body})"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.value};"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.name} {block_start}{body}{block_end}"
+  },
+  "ObjectInstantiation": {
+    "schema": "{inputFields.className} {inputFields.objectName} = new {inputFields.className}();"
+  },
+  "MethodDeclaration": {
+    "schema": "{inputFields.returnType} {inputFields.name}({body}) {block_start}{body}{block_end}"
+  },
+  "PropertyAccess": {
+    "schema": "{inputFields.object}.{inputFields.property}"
+  },
+  "TryCatch": {
+    "schema": "try {block_start}{inputFields.tryBody}{block_end} catch ({inputFields.exception}) {block_start}{inputFields.catchBody}{block_end}"
+  },
+  "ThrowStatement": {
+    "schema": "throw {inputFields.exception};"
+  },
+  "SingleLineComment": {
+    "schema": "// {inputFields.text}"
+  },
+  "MultiLineComment": {
+    "schema": "/* {inputFields.text} */"
+  }
+}

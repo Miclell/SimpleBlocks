@@ -1,0 +1,83 @@
+{
+  "NameConfiguration": {
+    "name": "C#",
+    "prism": "csharp",
+    "judge0": "51"
+  },
+  "SyntaxConfiguration": {
+    "indent": "    ",
+    "block_start": "{",
+    "block_end": "}",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.leftOperand} {inputFields.operator} {inputFields.rightOperand}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.operand}"
+  },
+  "IfStatement": {
+    "schema": "if ({inputFields.condition}) {block_start}{body}{block_end}"
+  },
+  "ElseStatement": {
+    "schema": "else {block_start}{body}{block_end}"
+  },
+  "ForLoop": {
+    "schema": "for (int {inputFields.iterator} = {inputFields.start}; {inputFields.conditionVar} {inputFields.conditionOp} {inputFields.end}; {inputFields.increment}) {block_start}{body}{block_end}"
+  },
+  "WhileLoop": {
+    "schema": "while ({inputFields.condition}) {block_start}{body}{block_end}"
+  },
+  "PrintStatement": {
+    "schema": "Console.WriteLine({inputFields.value});"
+  },
+  "InputStatement": {
+    "schema": "Console.ReadLine()"
+  },
+  "VariableDeclaration": {
+    "schema": "{inputFields.type} {inputFields.name} = {inputFields.value};"
+  },
+  "VariableAssignment": {
+    "schema": "{inputFields.name} = {inputFields.value};"
+  },
+  "ArrayDeclaration": {
+    "schema": "{inputFields.type}[] {inputFields.name} = new {inputFields.type}[] { {body} };"
+  },
+  "ArrayAccess": {
+    "schema": "{inputFields.arrayName}[{inputFields.index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "{inputFields.returnType} {inputFields.name}({body}) {block_start}{body}{block_end}"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.value};"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.name} {block_start}{body}{block_end}"
+  },
+  "MethodDeclaration": {
+    "schema": "{inputFields.returnType} {inputFields.name}({body}) {block_start}{body}{block_end}"
+  },
+  "TryCatch": {
+    "schema": "try {block_start}{body}{block_end} catch {block_start}{body}{block_end}"
+  },
+  "ThrowException": {
+    "schema": "throw {inputFields.exception};"
+  }
+}

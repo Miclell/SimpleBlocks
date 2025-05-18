@@ -1,0 +1,104 @@
+{
+  "NameConfiguration": {
+    "name": "JavaScript",
+    "prism": "javascript",
+    "judge0": "63"
+  },
+  "SyntaxConfiguration": {
+    "indent": "  ",
+    "block_start": "{",
+    "block_end": "}",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.left} {inputFields.operator} {inputFields.right}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.left} {inputFields.operator} {inputFields.right}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.value}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.left} {inputFields.operator} {inputFields.right}"
+  },
+  "IfStatement": {
+    "schema": "if ({inputFields.condition}) {block_start}{body}{block_end}"
+  },
+  "ElseStatement": {
+    "schema": "else {block_start}{body}{block_end}"
+  },
+  "ForLoop": {
+    "schema": "for (let {inputFields.variable} = {inputFields.start}; {inputFields.variable} <= {inputFields.end}; {inputFields.variable} += {inputFields.step}) {block_start}{body}{block_end}"
+  },
+  "ForEachLoop": {
+    "schema": "for (let {inputFields.variable} of {inputFields.collection}) {block_start}{body}{block_end}"
+  },
+  "WhileLoop": {
+    "schema": "while ({inputFields.condition}) {block_start}{body}{block_end}"
+  },
+  "Print": {
+    "schema": "console.log({inputFields.value})"
+  },
+  "Input": {
+    "schema": "prompt({inputFields.prompt})"
+  },
+  "VariableDeclaration": {
+    "schema": "let {inputFields.name} = {inputFields.value}"
+  },
+  "Assignment": {
+    "schema": "{inputFields.variable} = {inputFields.value}"
+  },
+  "ArrayDeclaration": {
+    "schema": "let {inputFields.name} = []"
+  },
+  "AddToArray": {
+    "schema": "{inputFields.array}.push({inputFields.value})"
+  },
+  "RemoveFromArray": {
+    "schema": "{inputFields.array}.splice({inputFields.array}.indexOf({inputFields.value}), 1)"
+  },
+  "ArrayAccess": {
+    "schema": "{inputFields.array}[{inputFields.index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "function {inputFields.name}({inputFields.params}) {block_start}{body}{block_end}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.name}({inputFields.args})"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.value}"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.name} {block_start}{body}{block_end}"
+  },
+  "ObjectInstantiation": {
+    "schema": "new {inputFields.className}()"
+  },
+  "MethodDeclaration": {
+    "schema": "{inputFields.name}({inputFields.params}) {block_start}{body}{block_end}"
+  },
+  "PropertyAccess": {
+    "schema": "{inputFields.object}.{inputFields.property}"
+  },
+  "TryCatch": {
+    "schema": "try {block_start}{inputFields.tryBody}{block_end} catch (e) {block_start}{inputFields.catchBody}{block_end}"
+  },
+  "ThrowException": {
+    "schema": "throw {inputFields.exception}"
+  },
+  "SingleLineComment": {
+    "schema": "// {inputFields.comment}"
+  }
+}

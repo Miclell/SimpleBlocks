@@ -1,0 +1,32 @@
+[
+  {
+    "name": "IfStatement",
+    "inputFields": {
+      "condition": "true"
+    },
+    "body": [
+      {
+        "name": "VariableDeclaration",
+        "inputFields": {
+          "variableName": "x",
+          "variableType": "int",
+          "initialValue": "5"
+        }
+      },
+      {
+        "name": "IfStatement",
+        "inputFields": {
+          "condition": "x > 0"
+        },
+        "body": [
+          {
+            "name": "Print",
+            "inputFields": {
+              "variable": "x"
+            }
+          }          
+        ]
+      }
+    ]
+  }
+]

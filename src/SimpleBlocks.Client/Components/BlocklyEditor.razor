@@ -1,0 +1,51 @@
+﻿@using Newtonsoft.Json.Linq
+@using SimpleBlocks.Client.Helpers
+@using SimpleBlocks.Client.Services
+
+@inject IJSRuntime JSRuntime
+
+<div class="blockly-container">
+    <div id="blocklyDiv" class="h-100" style="min-height: 600px;"></div>
+</div>
+
+@code {
+    [Parameter] public EventCallback<string> OnCodeGenerated { get; set; }
+    [Parameter] public Config? Config { get; set; }
+
+    private CodeGenerationService? _codeGenerationService;
+
+    protected override void OnParametersSet()
+    {
+        if (Config != null)
+        {
+            _codeGenerationService = new CodeGenerationService(Config);
+        }
+    }
+
+    public async Task GenerateCode()
+    {
+        if (_codeGenerationService == null)
+        {
+            await OnCodeGenerated.InvokeAsync("// Ошибка: сервис генерации кода не инициализирован");
+            return;
+        }
+
+        try
+        {
+            var json = await JSRuntime.InvokeAsync<string>("BlocklyInterop.getWorkspaceJson");
+            if (string.IsNullOrEmpty(json))
+            {
+                await OnCodeGenerated.InvokeAsync("// Ошибка: не удалось получить JSON из Blockly");
+                return;
+            }
+
+            var blocks = JArray.Parse(json);
+            var result = await _codeGenerationService.GenerateAsync(blocks);
+            await OnCodeGenerated.InvokeAsync(result);
+        }
+        catch (Exception ex)
+        {
+            await OnCodeGenerated.InvokeAsync($"// Ошибка генерации кода: {ex.Message}");
+        }
+    }
+}

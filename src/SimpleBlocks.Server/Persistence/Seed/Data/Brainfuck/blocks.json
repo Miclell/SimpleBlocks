@@ -1,0 +1,90 @@
+{
+  "blocks": [
+    {
+      "type": "bf_move_right",
+      "message0": "move pointer right >",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 200
+    },
+    {
+      "type": "bf_move_left",
+      "message0": "move pointer left <",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 200
+    },
+    {
+      "type": "bf_increment",
+      "message0": "increment +",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 120
+    },
+    {
+      "type": "bf_decrement",
+      "message0": "decrement -",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 120
+    },
+    {
+      "type": "bf_output",
+      "message0": "output .",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 60
+    },
+    {
+      "type": "bf_input",
+      "message0": "input ,",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 60
+    },
+    {
+      "type": "bf_loop_start",
+      "message0": "loop start [",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 300
+    },
+    {
+      "type": "bf_loop_end",
+      "message0": "loop end ]",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 300
+    },
+    {
+      "type": "bf_interpreter",
+      "message0": "Brainfuck interpreter %1",
+      "args0": [
+        {
+          "type": "input_statement",
+          "name": "body"
+        }
+      ],
+      "colour": 0,
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ],
+  "toolbox": [
+    "<xml>",
+    "  <category name='Brainfuck Commands'>",
+    "    <block type='bf_move_right'></block>",
+    "    <block type='bf_move_left'></block>",
+    "    <block type='bf_increment'></block>",
+    "    <block type='bf_decrement'></block>",
+    "    <block type='bf_output'></block>",
+    "    <block type='bf_input'></block>",
+    "    <block type='bf_loop_start'></block>",
+    "    <block type='bf_loop_end'></block>",
+    "  </category>",
+    "  <category name='Interpreter'>",
+    "    <block type='bf_interpreter'></block>",
+    "  </category>",
+    "</xml>"
+  ]
+}

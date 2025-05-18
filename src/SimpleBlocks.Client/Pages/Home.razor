@@ -1,0 +1,114 @@
+﻿@page "/"
+@using Newtonsoft.Json.Linq
+@using SimpleBlocks.Client.Helpers
+@using SimpleBlocks.Client.Services
+@inject FileService FileService
+@inject IJSRuntime JSRuntime
+
+<div class="home-container">
+    <div class="page-header mb-3">
+        <LanguageSelector OnLanguageLoaded="LoadLanguageFilesAsync" />
+    </div>
+    <div class="workspace-grid">
+        <div class="workspace-section">
+            <div class="blockly-container">
+                <BlocklyEditor @ref="_blocklyEditor" Config="_config" OnCodeGenerated="OnCodeGenerated" />
+            </div>
+        </div>
+        <div class="workspace-section d-flex flex-column">
+            <div class="code-output-section">
+                <CodeOutput Code="@GeneratedCode" Language="@_config?.NameConfiguration["prism"]" />
+            </div>
+            <div class="execution-section">
+                <CodeExecutor @ref="_codeExecutor" 
+                            Code="@GeneratedCode" 
+                            LanguageId="@(_config?.NameConfiguration["judge0"] != null ? int.Parse(_config.NameConfiguration["judge0"]) : 0)" 
+                            IsExecuting="@_isExecuting" />
+            </div>
+        </div>
+    </div>
+    <div class="buttons-container">
+        <button class="btn-modern primary px-4 execute-button" @onclick="OnGenerateClicked">
+            <i class="fas fa-play me-2"></i>Сгенерировать код
+        </button>
+        <button class="btn-modern primary px-4 execute-button" @onclick="OnExecuteClicked" disabled="@_isExecuting">
+            @if (_isExecuting)
+            {
+                <span class="loading-spinner me-2" role="status" aria-hidden="true"></span>
+                <span>Выполнение...</span>
+            }
+            else
+            {
+                <i class="fas fa-play me-2"></i>
+                <span>Выполнить код</span>
+            }
+        </button>
+    </div>
+</div>
+
+@code {
+    private string SelectedLanguage { get; set; } = string.Empty;
+    private string GeneratedCode { get; set; } = "// Сгенерированный код появится здесь...";
+    private Config? _config;
+    private BlocklyEditor? _blocklyEditor;
+    private CodeExecutor? _codeExecutor;
+    private bool _isExecuting;
+
+    private async Task LoadLanguageFilesAsync(string lang)
+    {
+        try
+        {
+            SelectedLanguage = lang;
+            var files = await FileService.GetLanguageFilesAsync(lang);
+            
+            try
+            {
+                if (files?.Blocks != null)
+                {
+                    var blocksWithToolbox = JObject.Parse(files.Blocks);
+                    var blocksJson = JArray.Parse(blocksWithToolbox["blocks"]!.ToString());
+                
+                    var semantics = JObject.Parse(files.Semantics);
+                
+                    _config = new Config(blocksJson, semantics);
+                    await JSRuntime.InvokeVoidAsync("BlocklyInterop.clearBlockly");
+                    await JSRuntime.InvokeVoidAsync("BlocklyInterop.initBlockly", blocksWithToolbox?.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                GeneratedCode = $"// Ошибка парсинга файлов: {ex.Message}";
+            }
+        }
+        catch (Exception e)
+        {
+            GeneratedCode = $"// Ошибка загрузки файлов: {e.Message}";
+        }
+    }
+
+    private void OnCodeGenerated(string code)
+    {
+        GeneratedCode = code;
+        StateHasChanged();
+    }
+
+    private async Task OnGenerateClicked()
+    {
+        if (_blocklyEditor != null)
+        {
+            await _blocklyEditor.GenerateCode();
+        }
+    }
+
+    private async Task OnExecuteClicked()
+    {
+        if (_codeExecutor != null)
+        {
+            _isExecuting = true;
+            StateHasChanged();
+            await _codeExecutor.ExecuteCode();
+            _isExecuting = false;
+            StateHasChanged();
+        }
+    }
+}

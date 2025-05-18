@@ -1,0 +1,111 @@
+{
+  "NameConfiguration": {
+    "name": "C++",
+    "prism": "cpp",
+    "judge0": "54"
+  },
+  "SyntaxConfiguration": {
+    "indent": "    ",
+    "block_start": "{",
+    "block_end": "}",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.Value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.Value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.Value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.Operand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "IfStatement": {
+    "schema": "if ({inputFields.Condition}) {body}"
+  },
+  "ElseStatement": {
+    "schema": "else {body}"
+  },
+  "ForLoop": {
+    "schema": "for ({inputFields.Initialization}; {inputFields.Condition}; {inputFields.Increment}) {body}"
+  },
+  "ForEachLoop": {
+    "schema": "for (auto {inputFields.Variable} : {inputFields.Collection}) {body}"
+  },
+  "WhileLoop": {
+    "schema": "while ({inputFields.Condition}) {body}"
+  },
+  "Print": {
+    "schema": "std::cout << {inputFields.Value} << std::endl;",
+    "languageImports": ["#include <iostream>"]
+  },
+  "Input": {
+    "schema": "std::string {inputFields.Prompt}_input; std::getline(std::cin, {inputFields.Prompt}_input); {inputFields.Prompt}_input",
+    "languageImports": ["#include <string>"]
+  },
+  "VariableDeclaration": {
+    "schema": "{inputFields.Type} {inputFields.Name} = {inputFields.Value};"
+  },
+  "Assignment": {
+    "schema": "{inputFields.Variable} = {inputFields.Value};"
+  },
+  "ArrayDeclaration": {
+    "schema": "{inputFields.Type} {inputFields.Name}[{inputFields.Size}];"
+  },
+  "ArrayPush": {
+    "schema": "{inputFields.Array}.push_back({inputFields.Value});",
+    "languageImports": ["#include <vector>"]
+  },
+  "ArrayRemove": {
+    "schema": "{inputFields.Array}.erase({inputFields.Array}.begin() + {inputFields.Index});",
+    "languageImports": ["#include <vector>"]
+  },
+  "ArrayAccess": {
+    "schema": "{inputFields.Array}[{inputFields.Index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "{inputFields.ReturnType} {inputFields.Name}({body}) {body}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.Name}({body});"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.Value};"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.Name} {body}"
+  },
+  "ObjectInstantiation": {
+    "schema": "{inputFields.ClassName} {inputFields.ObjectName};"
+  },
+  "MethodDeclaration": {
+    "schema": "{inputFields.ReturnType} {inputFields.Name}({body}) {body}"
+  },
+  "PropertyAccess": {
+    "schema": "{inputFields.Object}.{inputFields.Property}"
+  },
+  "TryCatch": {
+    "schema": "try {body} catch ({inputFields.Exception}) {body}"
+  },
+  "ThrowException": {
+    "schema": "throw {inputFields.Exception};"
+  },
+  "SingleLineComment": {
+    "schema": "// {inputFields.Text}"
+  },
+  "MultiLineComment": {
+    "schema": "/* {inputFields.Text} */"
+  }
+}

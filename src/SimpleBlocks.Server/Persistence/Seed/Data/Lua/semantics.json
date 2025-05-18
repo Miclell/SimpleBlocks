@@ -1,0 +1,92 @@
+{
+  "NameConfiguration": {
+    "name": "Lua",
+    "prism": "lua",
+    "judge0": "69"
+  },
+  "SyntaxConfiguration": {
+    "indent": "  ",
+    "block_start": "",
+    "block_end": "",
+    "statement_separator": "",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.Value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.Value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.Value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "NotOperation": {
+    "schema": "not {inputFields.Operand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "IfStatement": {
+    "schema": "if {inputFields.Condition} then\n{body}\nend"
+  },
+  "IfElseStatement": {
+    "schema": "if {inputFields.Condition} then\n{inputFields.IfBody}\nelse\n{inputFields.ElseBody}\nend"
+  },
+  "WhileLoop": {
+    "schema": "while {inputFields.Condition} do\n{body}\nend"
+  },
+  "ForLoop": {
+    "schema": "for {inputFields.Variable} = {inputFields.Start}, {inputFields.End}, {inputFields.Step} do\n{body}\nend"
+  },
+  "ForEachLoop": {
+    "schema": "for _, {inputFields.Item} in ipairs({inputFields.List}) do\n{body}\nend"
+  },
+  "PrintStatement": {
+    "schema": "print({inputFields.Value})"
+  },
+  "InputStatement": {
+    "schema": "io.read()"
+  },
+  "VariableDeclaration": {
+    "schema": "local {inputFields.Name} = {inputFields.Value}"
+  },
+  "VariableAssignment": {
+    "schema": "{inputFields.Name} = {inputFields.Value}"
+  },
+  "ArrayDeclaration": {
+    "schema": "{{inputFields.Items}}"
+  },
+  "ArrayAddElement": {
+    "schema": "table.insert({inputFields.ArrayName}, {inputFields.Value})"
+  },
+  "ArrayRemoveElement": {
+    "schema": "table.remove({inputFields.ArrayName}, {inputFields.Index})"
+  },
+  "ArrayIndexAccess": {
+    "schema": "{inputFields.ArrayName}[{inputFields.Index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "function {inputFields.Name}({inputFields.Params})\n{body}\nend"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.Name}({inputFields.Args})"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.Value}"
+  },
+  "TryCatch": {
+    "schema": "local ok, err = pcall(function()\n{inputFields.TryBody}\nend)\nif not ok then\n{inputFields.CatchBody}\nend"
+  },
+  "ThrowStatement": {
+    "schema": "error({inputFields.Message})"
+  },
+  "CommentSingleLine": {
+    "schema": "-- {inputFields.Text}"
+  }
+}

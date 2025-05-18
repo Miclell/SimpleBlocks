@@ -1,0 +1,42 @@
+{
+  "NameConfiguration": {
+    "name": "Brainfuck",
+    "prism": "brainfuck",
+    "judge0": "44"
+  },
+  "SyntaxConfiguration": {
+    "indent": "  ",
+    "block_start": "",
+    "block_end": "",
+    "statement_separator": "",
+    "assigment_symbol": ""
+  },
+  "bf_move_right": {
+    "schema": ">"
+  },
+  "bf_move_left": {
+    "schema": "<"
+  },
+  "bf_increment": {
+    "schema": "+"
+  },
+  "bf_decrement": {
+    "schema": "-"
+  },
+  "bf_output": {
+    "schema": "."
+  },
+  "bf_input": {
+    "schema": ","
+  },
+  "bf_loop_start": {
+    "schema": "["
+  },
+  "bf_loop_end": {
+    "schema": "]"
+  },
+  "bf_interpreter": {
+    "schema": "from collections import defaultdict\n\ndef brainfuck(program):\n    tape = defaultdict(int)\n    ptr = 0\n    pc = 0\n    stack = []\n    output = []\n    input_buffer = list(input('Enter input: '))\n    input_ptr = 0\n    \n    while pc < len(program):\n        cmd = program[pc]\n        \n        if cmd == '>':\n            ptr += 1\n        elif cmd == '<':\n            ptr -= 1\n        elif cmd == '+':\n            tape[ptr] = (tape[ptr] + 1) % 256\n        elif cmd == '-':\n            tape[ptr] = (tape[ptr] - 1) % 256\n        elif cmd == '.':\n            output.append(chr(tape[ptr]))\n        elif cmd == ',':\n            if input_ptr < len(input_buffer):\n                tape[ptr] = ord(input_buffer[input_ptr])\n                input_ptr += 1\n            else:\n                tape[ptr] = 0\n        elif cmd == '[':\n            if tape[ptr] == 0:\n                depth = 1\n                while depth > 0:\n                    pc += 1\n                    if program[pc] == '[':\n                        depth += 1\n                    elif program[pc] == ']':\n                        depth -= 1\n            else:\n                stack.append(pc)\n        elif cmd == ']':\n            if tape[ptr] != 0:\n                pc = stack[-1] - 1\n            else:\n                stack.pop()\n        \n        pc += 1\n    \n    return ''.join(output)\n\nprogram = '''{body}'''\nprint(brainfuck(program))",
+    "languageImports": []
+  }
+}
