@@ -189,6 +189,15 @@
       "colour": 330
     },
     {
+      "type": "VariableGet",
+      "message0": "get %1",
+      "args0": [
+        { "type": "field_variable", "name": "name" }
+      ],
+      "output": null,
+      "colour": 330
+    },
+    {
       "type": "ArrayDeclaration",
       "message0": "array %1",
       "args0": [
@@ -390,6 +399,7 @@
     "  <category name='Variables'>",
     "    <block type='VariableDeclaration'></block>",
     "    <block type='Assignment'></block>",
+    "    <block type='VariableGet'></block>",
     "    <block type='TypeDeclaration'></block>",
     "  </category>",
     "  <category name='Collections'>",

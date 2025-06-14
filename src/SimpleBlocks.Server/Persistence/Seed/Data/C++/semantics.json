@@ -107,5 +107,8 @@
   },
   "MultiLineComment": {
     "schema": "/* {inputFields.Text} */"
+  },
+  "VariableGet": {
+    "schema": "{inputFields.Variable}"
   }
 }

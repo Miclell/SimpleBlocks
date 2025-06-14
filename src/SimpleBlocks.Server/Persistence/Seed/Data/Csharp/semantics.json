@@ -56,6 +56,9 @@
   "VariableAssignment": {
     "schema": "{inputFields.name} = {inputFields.value};"
   },
+  "VariableGet": {
+    "schema": "{inputFields.name}"
+  },
   "ArrayDeclaration": {
     "schema": "{inputFields.type}[] {inputFields.name} = new {inputFields.type}[] { {body} };"
   },

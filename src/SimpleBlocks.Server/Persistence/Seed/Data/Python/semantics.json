@@ -100,5 +100,8 @@
   },
   "SingleLineComment": {
     "schema": "# {inputFields.comment}"
+  },
+  "VariableGet": {
+    "schema": "{inputFields.name}"
   }
 }

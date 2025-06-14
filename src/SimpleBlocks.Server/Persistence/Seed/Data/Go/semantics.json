@@ -77,5 +77,8 @@
   },
   "Comment": {
     "schema": "// {inputFields.Text}"
+  },
+  "VariableGet": {
+    "schema": "{inputFields.Variable}"
   }
 }

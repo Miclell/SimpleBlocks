@@ -201,6 +201,15 @@
       "colour": 330
     },
     {
+      "type": "VariableGet",
+      "message0": "get %1",
+      "args0": [
+        { "type": "field_input", "name": "name" }
+      ],
+      "output": null,
+      "colour": 330
+    },
+    {
       "type": "ListDeclaration",
       "message0": "List [ %1 ]",
       "args0": [
@@ -373,6 +382,7 @@
     "  <category name='Variables'>",
     "    <block type='VariableDeclaration'></block>",
     "    <block type='Assignment'></block>",
+    "    <block type='VariableGet'></block>",
     "  </category>",
     "  <category name='Collections'>",
     "    <block type='ListDeclaration'></block>",

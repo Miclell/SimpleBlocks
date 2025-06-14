@@ -200,6 +200,15 @@
       "colour": 30
     },
     {
+      "type": "VariableGet",
+      "message0": "get %1",
+      "args0": [
+        { "type": "field_input", "name": "Name" }
+      ],
+      "output": null,
+      "colour": 30
+    },
+    {
       "type": "ArrayDeclaration",
       "message0": "{ %1 }",
       "args0": [
@@ -330,6 +339,7 @@
     "  <category name='Variables'>",
     "    <block type='VariableDeclaration'></block>",
     "    <block type='VariableAssignment'></block>",
+    "    <block type='VariableGet'></block>",
     "  </category>",
     "  <category name='Collections'>",
     "    <block type='ArrayDeclaration'></block>",

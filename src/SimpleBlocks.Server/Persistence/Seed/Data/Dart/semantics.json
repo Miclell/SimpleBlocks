@@ -103,5 +103,8 @@
   },
   "CommentMulti": {
     "schema": "/* {inputFields.text} */"
+  },
+  "VariableGet": {
+    "schema": "{inputFields.name}"
   }
 }

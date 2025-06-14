@@ -88,5 +88,8 @@
   },
   "CommentSingleLine": {
     "schema": "-- {inputFields.Text}"
+  },
+  "VariableGet": {
+    "schema": "{inputFields.Name}"
   }
 }

@@ -5,7 +5,7 @@
     "judge0": "63"
   },
   "SyntaxConfiguration": {
-    "indent": "  ",
+    "indent": "    ",
     "block_start": "{",
     "block_end": "}",
     "statement_separator": ";",
@@ -100,5 +100,8 @@
   },
   "SingleLineComment": {
     "schema": "// {inputFields.comment}"
+  },
+  "VariableGet": {
+    "schema": "{inputFields.name}"
   }
 }

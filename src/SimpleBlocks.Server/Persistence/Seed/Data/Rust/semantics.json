@@ -73,5 +73,8 @@
   },
   "Throw": {
     "schema": "panic!(\"{inputFields.message}\");"
+  },
+  "VariableGet": {
+    "schema": "{inputFields.name}"
   }
 }
