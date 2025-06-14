@@ -7,7 +7,8 @@
 
 <div class="home-container">
     <div class="page-header mb-3">
-        <LanguageSelector OnLanguageLoaded="LoadLanguageFilesAsync" />
+        <Header OnLanguageLoaded="LoadLanguageFilesAsync"></Header>
+        <!--<LanguageSelector OnLanguageLoaded="LoadLanguageFilesAsync"/>-->
     </div>
     <div class="workspace-grid">
         <div class="workspace-section">
@@ -63,12 +64,12 @@
             
             try
             {
-                if (files?.Blocks != null)
+                if (files?.BlocksJson != null)
                 {
-                    var blocksWithToolbox = JObject.Parse(files.Blocks);
+                    var blocksWithToolbox = JObject.Parse(files.BlocksJson);
                     var blocksJson = JArray.Parse(blocksWithToolbox["blocks"]!.ToString());
                 
-                    var semantics = JObject.Parse(files.Semantics);
+                    var semantics = JObject.Parse(files.SemanticsJson);
                 
                     _config = new Config(blocksJson, semantics);
                     await JSRuntime.InvokeVoidAsync("BlocklyInterop.clearBlockly");

@@ -1,0 +1,59 @@
+﻿@using SimpleBlocks.Client.Helpers
+@using SimpleBlocks.Shared.Models
+
+<header>
+    <div class="header-container">
+        <div class="logo-text">SimpleBlocks</div>
+
+        <nav class="header-buttons">
+            <LanguageSelector @ref="_languageSelector" OnLanguageChanged="LanguageChanged" />
+
+            <button class="header-btn" @onclick="LoadSelectedLanguage">
+                Загрузить язык
+            </button>
+
+            <AddLanguageDialog IsOpen="_showAddDialog"
+                               OnLanguageAdded="OnLanguageUploaded"
+                               OnClose="CloseDialog" />
+
+            <button class="header-btn" @onclick="() => _showAddDialog = true">
+                Добавить язык
+            </button>
+        </nav>
+    </div>
+</header>
+
+@code {
+    private bool _showAddDialog = false;
+    private LanguageSelector? _languageSelector;
+
+    [Parameter] public EventCallback<string> OnLanguageLoaded { get; set; }
+
+    private string _selectedLanguage = string.Empty;
+
+    private Task LanguageChanged(string lang)
+    {
+        _selectedLanguage = lang;
+        return Task.CompletedTask;
+    }
+
+    private Task LoadSelectedLanguage()
+    {
+        return OnLanguageLoaded.InvokeAsync(_selectedLanguage);
+    }
+
+    private async Task OnLanguageUploaded(LanguageFiles file)
+    {
+        _showAddDialog = false;
+        if (_languageSelector != null)
+        {
+            await _languageSelector.RefreshLanguagesAsync();
+        }
+    }
+
+    private Task CloseDialog()
+    {
+        _showAddDialog = false;
+        return Task.CompletedTask;
+    }
+}

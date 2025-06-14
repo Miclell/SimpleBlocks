@@ -27,6 +27,7 @@ public class Program
         builder.Services.AddScoped<LanguageService>();
         builder.Services.AddScoped<ExecutionService>();
         builder.Services.AddScoped<ClipboardService>();
+        builder.Services.AddScoped<LocalStorageService>();
 
         await builder.Build().RunAsync();
     }

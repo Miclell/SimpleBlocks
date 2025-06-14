@@ -1,37 +1,59 @@
 ﻿@using SimpleBlocks.Client.Services
+@using SimpleBlocks.Client.Helpers
 @inject LanguageService LanguageService
+@inject LocalStorageService LocalStorageService
 
-<div class="language-selector">
-    <label for="languageSelect">Выберите язык:</label>
-    <div class="language-controls">
-        <select id="languageSelect" class="select-modern language-select" @bind="SelectedLanguage">
-            @if (_availableLanguages != null)
-            {
-                @foreach (var language in _availableLanguages)
-                {
-                    <option value="@language">@language</option>
-                }
-            }
-        </select>
-        <button class="btn-modern primary load-button" @onclick="OnLoadLanguageClicked">
-            Загрузить язык
-        </button>
-    </div>
-</div>
+<select class="language-select" value="@SelectedLanguage" @onchange="OnSelectedChanged">
+    @if (_availableLanguages != null)
+    {
+        @foreach (var language in _availableLanguages)
+        {
+            <option value="@language" class="@(language.StartsWith(".") ? "local-language" : "server-language")">
+                @(language.StartsWith(".") ? language[1..] : language)
+            </option>
+        }
+    }
+</select>
 
 @code {
-    [Parameter] public EventCallback<string> OnLanguageLoaded { get; set; }
+    [Parameter] public EventCallback<string> OnLanguageChanged { get; set; }
+
     private string SelectedLanguage { get; set; } = string.Empty;
     private IEnumerable<string>? _availableLanguages;
 
     protected override async Task OnInitializedAsync()
     {
-        _availableLanguages = await LanguageService.GetAvailableLanguagesAsync();
-        SelectedLanguage = _availableLanguages?.FirstOrDefault() ?? string.Empty;
+        await LoadLanguagesAsync();
     }
 
-    private async Task OnLoadLanguageClicked()
+    private async Task LoadLanguagesAsync()
     {
-        await OnLanguageLoaded.InvokeAsync(SelectedLanguage);
+        var serverLanguages = await LanguageService.GetAvailableLanguagesAsync();
+        var localLanguages = await LocalStorageService.GetLanguagesAsync();
+        
+        _availableLanguages = serverLanguages
+            .Concat(localLanguages.Select(l => l.LanguageKey))
+            .OrderBy(l => l);
+            
+        if (string.IsNullOrEmpty(SelectedLanguage))
+        {
+            SelectedLanguage = _availableLanguages?.FirstOrDefault() ?? string.Empty;
+            if (!string.IsNullOrEmpty(SelectedLanguage))
+            {
+                await OnLanguageChanged.InvokeAsync(SelectedLanguage);
+            }
+        }
+    }
+
+    private async Task OnSelectedChanged(ChangeEventArgs e)
+    {
+        SelectedLanguage = e.Value?.ToString() ?? string.Empty;
+        await OnLanguageChanged.InvokeAsync(SelectedLanguage);
+    }
+
+    public async Task RefreshLanguagesAsync()
+    {
+        await LoadLanguagesAsync();
+        StateHasChanged();
     }
 }

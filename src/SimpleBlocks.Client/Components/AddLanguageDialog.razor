@@ -1,0 +1,111 @@
+﻿@using SimpleBlocks.Client.Helpers
+@using SimpleBlocks.Client.Services
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@inject LocalStorageService LocalStorageService
+
+@if (IsOpen)
+{
+    <div class="modal-overlay" @onclick="Close">
+        <div class="modal-window" @onclick:stopPropagation="true">
+            <h3>Добавление языка</h3>
+
+            @if (!string.IsNullOrEmpty(_errorMessage))
+            {
+                <div class="alert alert-danger">
+                    @_errorMessage
+                </div>
+            }
+
+            <div class="form-group">
+                <label>Название языка</label>
+                <input type="text" class="input-text" @bind="LanguageName" placeholder="Введите название языка" />
+            </div>
+
+            <div class="form-group">
+                <label>Загрузить blocks.json</label>
+                <input type="file" @ref="blocksInput" accept=".json" class="input-text" />
+            </div>
+
+            <div class="form-group">
+                <label>Загрузить semantics.json</label>
+                <input type="file" @ref="semanticsInput" accept=".json" class="input-text" />
+            </div>
+
+            <div class="dialog-buttons">
+                <button class="btn-modern secondary" @onclick="Close">Отмена</button>
+                <button class="btn-modern primary" @onclick="OnSaveClicked">Сохранить</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public EventCallback<LanguageFiles> OnLanguageAdded { get; set; }
+    [Parameter] public bool IsOpen { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+
+    private string LanguageName = string.Empty;
+    private ElementReference blocksInput;
+    private ElementReference semanticsInput;
+    private string _errorMessage = string.Empty;
+
+    private async Task OnSaveClicked()
+    {
+        _errorMessage = string.Empty;
+
+        if (string.IsNullOrWhiteSpace(LanguageName))
+        {
+            _errorMessage = "Введите название языка";
+            return;
+        }
+
+        var blocks = await ReadFile(blocksInput);
+        var semantics = await ReadFile(semanticsInput);
+
+        if (blocks is null || semantics is null)
+        {
+            _errorMessage = "Загрузите оба файла";
+            return;
+        }
+
+        try
+        {
+            // TODO Add validation
+            
+            var file = new LanguageFiles
+            {
+                LanguageKey = $".{LanguageName}",
+                BlocksJson = blocks,
+                SemanticsJson = semantics,
+                Source = LanguageSource.Local
+            };
+
+            await LocalStorageService.SaveLanguageAsync(file);
+            await OnLanguageAdded.InvokeAsync(file);
+            await OnClose.InvokeAsync();
+        }
+        catch (JsonReaderException)
+        {
+            _errorMessage = "Один или оба файла содержат некорректный JSON";
+        }
+        catch (Exception ex)
+        {
+            _errorMessage = $"Ошибка при обработке файлов: {ex.Message}";
+        }
+    }
+
+    private async Task<string?> ReadFile(ElementReference inputRef)
+    {
+        var fileInput = await JS.InvokeAsync<IJSObjectReference>("import", "./js/fileReader.js");
+        return await fileInput.InvokeAsync<string>("readFileAsText", inputRef);
+    }
+
+    private Task Close()
+    {
+        _errorMessage = string.Empty;
+        return OnClose.InvokeAsync();
+    }
+
+    [Inject] private IJSRuntime JS { get; set; }
+}
