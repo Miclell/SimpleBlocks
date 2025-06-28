@@ -1,0 +1,110 @@
+{
+  "NameConfiguration": {
+    "name": "Ruby",
+    "prism": "ruby",
+    "judge0": "72"
+  },
+  "SyntaxConfiguration": {
+    "indent": "  ",
+    "block_start": "",
+    "block_end": "",
+    "statement_separator": "\n",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.Value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.Value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.Value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.Operand}"
+  },
+  "IfStatement": {
+    "schema": "if {inputFields.Condition}\n{body}\nend"
+  },
+  "IfElseStatement": {
+    "schema": "if {inputFields.Condition}\n{inputFields.IfBody}\nelse\n{inputFields.ElseBody}\nend"
+  },
+  "WhileLoop": {
+    "schema": "while {inputFields.Condition}\n{body}\nend"
+  },
+  "ForLoop": {
+    "schema": "for {inputFields.Variable} in {inputFields.Range}\n{body}\nend"
+  },
+  "ForEachLoop": {
+    "schema": "{inputFields.Collection}.each do |{inputFields.Item}|\n{body}\nend"
+  },
+  "PrintStatement": {
+    "schema": "puts {inputFields.Value}"
+  },
+  "InputStatement": {
+    "schema": "gets.chomp"
+  },
+  "VariableDeclaration": {
+    "schema": "{inputFields.Name} = {inputFields.Value}"
+  },
+  "VariableAssignment": {
+    "schema": "{inputFields.Name} = {inputFields.Value}"
+  },
+  "VariableUsage": {
+    "schema": "{inputFields.Name}"
+  },
+  "ArrayDeclaration": {
+    "schema": "[{inputFields.Elements}]"
+  },
+  "ArrayAddElement": {
+    "schema": "{inputFields.ArrayName}.push({inputFields.Element})"
+  },
+  "ArrayRemoveElement": {
+    "schema": "{inputFields.ArrayName}.delete_at({inputFields.Index})"
+  },
+  "ArrayAccess": {
+    "schema": "{inputFields.ArrayName}[{inputFields.Index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "def {inputFields.Name}({inputFields.Params})\n{body}\nend"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.Name}({inputFields.Args})"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.Value}"
+  },
+  "ClassDefinition": {
+    "schema": "class {inputFields.Name}\n{body}\nend"
+  },
+  "MethodDefinition": {
+    "schema": "def {inputFields.Name}({inputFields.Params})\n{body}\nend"
+  },
+  "ObjectInstantiation": {
+    "schema": "{inputFields.ClassName}.new"
+  },
+  "MethodCall": {
+    "schema": "{inputFields.Object}.{inputFields.Method}({inputFields.Args})"
+  },
+  "TryCatch": {
+    "schema": "begin\n{inputFields.TryBody}\nrescue {inputFields.ExceptionClass} => {inputFields.ExceptionVar}\n{inputFields.CatchBody}\nend"
+  },
+  "RaiseException": {
+    "schema": "raise {inputFields.Exception}"
+  },
+  "SingleLineComment": {
+    "schema": "# {inputFields.Text}"
+  },
+  "MultiLineComment": {
+    "schema": "=begin\n{inputFields.Text}\n=end"
+  }
+}

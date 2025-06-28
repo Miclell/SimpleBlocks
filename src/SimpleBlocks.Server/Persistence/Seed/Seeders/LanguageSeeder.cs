@@ -8,7 +8,12 @@ namespace SimpleBlocks.Server.Persistence.Seed.Seeders;
 public class LanguageSeeder : ISeeder
 {
     private readonly string _basePath = Path.Combine("Persistence", "Seed", "Data");
-    private readonly string[] _languagesNames = ["Brainfuck", "Csharp", "C++", "Dart", "Go", "Java", "JavaScript", "Lua", "PHP", "Python", "Rust"];
+    private readonly string[] _languagesNames = [
+        "Brainfuck", "Csharp", "C++", 
+        "Dart", "Go", "Java", "JavaScript", 
+        "Lua", "PHP", "Python", "Rust",
+        "Kotlin", "Ruby", "Swift", "TypeScript"
+    ];
 
     public async Task SeedAsync(AppDbContext context)
     {

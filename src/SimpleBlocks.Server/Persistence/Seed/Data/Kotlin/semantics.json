@@ -1,0 +1,110 @@
+{
+  "NameConfiguration": {
+    "name": "Kotlin",
+    "prism": "kotlin",
+    "judge0": "78"
+  },
+  "SyntaxConfiguration": {
+    "indent": "    ",
+    "block_start": "",
+    "block_end": "",
+    "statement_separator": "",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.left} {inputFields.operator} {inputFields.right}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.left} {inputFields.operator} {inputFields.right}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.value}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.left} {inputFields.operator} {inputFields.right}"
+  },
+  "IfStatement": {
+    "schema": "if ({inputFields.condition}) {body}"
+  },
+  "ElseStatement": {
+    "schema": "else {body}"
+  },
+  "ForLoop": {
+    "schema": "for ({inputFields.variable} in {inputFields.start}..{inputFields.end}) {body}"
+  },
+  "ForEachLoop": {
+    "schema": "for ({inputFields.variable} in {inputFields.collection}) {body}"
+  },
+  "WhileLoop": {
+    "schema": "while ({inputFields.condition}) {body}"
+  },
+  "PrintStatement": {
+    "schema": "println({inputFields.value})"
+  },
+  "InputStatement": {
+    "schema": "readLine()"
+  },
+  "VariableDeclaration": {
+    "schema": "var {inputFields.name}: {inputFields.type} = {inputFields.value}"
+  },
+  "VariableAssignment": {
+    "schema": "{inputFields.name} = {inputFields.value}"
+  },
+  "VariableUsage": {
+    "schema": "{inputFields.name}"
+  },
+  "ArrayDeclaration": {
+    "schema": "var {inputFields.name}: Array<{inputFields.type}> = arrayOf()"
+  },
+  "AddToArray": {
+    "schema": "{inputFields.array}.add({inputFields.value})"
+  },
+  "RemoveFromArray": {
+    "schema": "{inputFields.array}.remove({inputFields.value})"
+  },
+  "ArrayAccess": {
+    "schema": "{inputFields.array}[{inputFields.index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "fun {inputFields.name}({body}): {inputFields.returnType} {body}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.name}({body})"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.value}"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.name} {body}"
+  },
+  "ObjectInstantiation": {
+    "schema": "val {inputFields.name} = {inputFields.className}()"
+  },
+  "MethodDeclaration": {
+    "schema": "fun {inputFields.name}({body}): {inputFields.returnType} {body}"
+  },
+  "PropertyMethodAccess": {
+    "schema": "{inputFields.object}.{inputFields.propertyMethod}"
+  },
+  "TryCatch": {
+    "schema": "try {body} catch ({inputFields.exception}: Exception) {body}"
+  },
+  "ThrowStatement": {
+    "schema": "throw {inputFields.exception}"
+  },
+  "SingleLineComment": {
+    "schema": "// {inputFields.text}"
+  },
+  "MultiLineComment": {
+    "schema": "/* {inputFields.text} */"
+  }
+}

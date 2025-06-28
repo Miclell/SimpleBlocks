@@ -1,0 +1,110 @@
+﻿{
+  "NameConfiguration": {
+    "name": "Swift",
+    "prism": "swift",
+    "judge0": "83"
+  },
+  "SyntaxConfiguration": {
+    "indent": "    ",
+    "block_start": "",
+    "block_end": "",
+    "statement_separator": "\n",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.Value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.Value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.Value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "({inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand})"
+  },
+  "ComparisonOperation": {
+    "schema": "({inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand})"
+  },
+  "LogicalOperation": {
+    "schema": "({inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand})"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.Operand}"
+  },
+  "IfStatement": {
+    "schema": "if {inputFields.Condition} {\n{body}\n}"
+  },
+  "ElseStatement": {
+    "schema": "else {\n{body}\n}"
+  },
+  "ForLoop": {
+    "schema": "for {inputFields.Variable} in {inputFields.From}...{inputFields.To} {\n{body}\n}"
+  },
+  "ForEachLoop": {
+    "schema": "for {inputFields.Item} in {inputFields.Collection} {\n{body}\n}"
+  },
+  "WhileLoop": {
+    "schema": "while {inputFields.Condition} {\n{body}\n}"
+  },
+  "PrintStatement": {
+    "schema": "print({inputFields.Value})"
+  },
+  "InputStatement": {
+    "schema": "readLine().flatMap({inputFields.Type}.init)"
+  },
+  "VariableDeclaration": {
+    "schema": "let {inputFields.Name}: {inputFields.Type} = {inputFields.Value}"
+  },
+  "VariableAssignment": {
+    "schema": "{inputFields.Variable} = {inputFields.Value}"
+  },
+  "VariableUsage": {
+    "schema": "{inputFields.Variable}"
+  },
+  "ArrayDeclaration": {
+    "schema": "[{body}] as [{inputFields.Type}]"
+  },
+  "ArrayAddElement": {
+    "schema": "{inputFields.Array}.append({inputFields.Element})"
+  },
+  "ArrayRemoveElement": {
+    "schema": "{inputFields.Array}.remove(at: {inputFields.Index})"
+  },
+  "ArrayAccess": {
+    "schema": "{inputFields.Array}[{inputFields.Index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "func {inputFields.Name}({body}) -> {inputFields.ReturnType} {\n{body}\n}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.Name}({body})"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.Value}"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.Name} {\n{body}\n}"
+  },
+  "ObjectInstantiation": {
+    "schema": "{inputFields.ClassName}()"
+  },
+  "MethodDeclaration": {
+    "schema": "func {inputFields.Name}({body}) -> {inputFields.ReturnType} {\n{body}\n}"
+  },
+  "PropertyAccess": {
+    "schema": "{inputFields.Object}.{inputFields.Property}"
+  },
+  "TryCatch": {
+    "schema": "do {\n{body}\n} catch {inputFields.ErrorName} {\n{body}\n}"
+  },
+  "ThrowStatement": {
+    "schema": "throw {inputFields.Error}"
+  },
+  "SingleLineComment": {
+    "schema": "// {inputFields.Text}"
+  },
+  "MultiLineComment": {
+    "schema": "/* {inputFields.Text} */"
+  }
+}

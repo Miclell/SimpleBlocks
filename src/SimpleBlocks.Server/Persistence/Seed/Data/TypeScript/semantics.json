@@ -1,0 +1,110 @@
+{
+  "NameConfiguration": {
+    "name": "TypeScript",
+    "prism": "typescript",
+    "judge0": "74"
+  },
+  "SyntaxConfiguration": {
+    "indent": "  ",
+    "block_start": "{",
+    "block_end": "}",
+    "statement_separator": ";",
+    "assigment_symbol": "="
+  },
+  "Number": {
+    "schema": "{inputFields.Value}"
+  },
+  "String": {
+    "schema": "\"{inputFields.Value}\""
+  },
+  "Boolean": {
+    "schema": "{inputFields.Value}"
+  },
+  "ArithmeticOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "LogicalOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "NotOperation": {
+    "schema": "!{inputFields.Operand}"
+  },
+  "ComparisonOperation": {
+    "schema": "{inputFields.LeftOperand} {inputFields.Operator} {inputFields.RightOperand}"
+  },
+  "IfStatement": {
+    "schema": "if ({inputFields.Condition}) {body}"
+  },
+  "ElseStatement": {
+    "schema": "else {body}"
+  },
+  "ForLoop": {
+    "schema": "for (let {inputFields.Variable} = {inputFields.Start}; {inputFields.Condition}; {inputFields.Increment}) {body}"
+  },
+  "ForEachLoop": {
+    "schema": "for (let {inputFields.Item} of {inputFields.Collection}) {body}"
+  },
+  "WhileLoop": {
+    "schema": "while ({inputFields.Condition}) {body}"
+  },
+  "Print": {
+    "schema": "console.log({inputFields.Value})"
+  },
+  "Input": {
+    "schema": "prompt({inputFields.Prompt})"
+  },
+  "VariableDeclaration": {
+    "schema": "let {inputFields.Name}: {inputFields.Type} = {inputFields.Value}"
+  },
+  "VariableAssignment": {
+    "schema": "{inputFields.Name} = {inputFields.Value}"
+  },
+  "VariableUsage": {
+    "schema": "{inputFields.Name}"
+  },
+  "ArrayDeclaration": {
+    "schema": "let {inputFields.Name}: {inputFields.Type}[] = [{inputFields.Items}]"
+  },
+  "ArrayAddElement": {
+    "schema": "{inputFields.ArrayName}.push({inputFields.Value})"
+  },
+  "ArrayRemoveElement": {
+    "schema": "{inputFields.ArrayName}.splice({inputFields.Index}, 1)"
+  },
+  "ArrayAccess": {
+    "schema": "{inputFields.ArrayName}[{inputFields.Index}]"
+  },
+  "FunctionDefinition": {
+    "schema": "function {inputFields.Name}({inputFields.Parameters}): {inputFields.ReturnType} {body}"
+  },
+  "FunctionCall": {
+    "schema": "{inputFields.Name}({inputFields.Arguments})"
+  },
+  "ReturnStatement": {
+    "schema": "return {inputFields.Value}"
+  },
+  "ClassDeclaration": {
+    "schema": "class {inputFields.Name} {body}"
+  },
+  "ObjectInstantiation": {
+    "schema": "new {inputFields.ClassName}({inputFields.Arguments})"
+  },
+  "MethodDeclaration": {
+    "schema": "{inputFields.Name}({inputFields.Parameters}): {inputFields.ReturnType} {body}"
+  },
+  "PropertyMethodAccess": {
+    "schema": "{inputFields.ObjectName}.{inputFields.PropertyMethod}"
+  },
+  "TryCatch": {
+    "schema": "try {inputFields.TryBody} catch ({inputFields.ErrorName}) {inputFields.CatchBody}"
+  },
+  "ThrowStatement": {
+    "schema": "throw {inputFields.Error}"
+  },
+  "SingleLineComment": {
+    "schema": "// {inputFields.Text}"
+  },
+  "MultiLineComment": {
+    "schema": "/* {inputFields.Text} */"
+  }
+}

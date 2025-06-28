@@ -1,0 +1,445 @@
+﻿{
+  "blocks": [
+    {
+      "type": "Number",
+      "message0": "Number %1",
+      "args0": [
+        { "type": "field_number", "name": "Value" }
+      ],
+      "output": "Number",
+      "colour": 230
+    },
+    {
+      "type": "String",
+      "message0": "String %1",
+      "args0": [
+        { "type": "field_input", "name": "Value" }
+      ],
+      "output": "String",
+      "colour": 160
+    },
+    {
+      "type": "Boolean",
+      "message0": "Boolean %1",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "Value",
+          "options": [["true", "true"], ["false", "false"]]
+        }
+      ],
+      "output": "Boolean",
+      "colour": 290
+    },
+    {
+      "type": "ArithmeticOperation",
+      "message0": "%1 %2 %3",
+      "args0": [
+        { "type": "input_value", "name": "LeftOperand", "check": "Number" },
+        {
+          "type": "field_dropdown",
+          "name": "Operator",
+          "options": [
+            ["+", "+"], ["-", "-"], ["*", "*"], ["/", "/"], ["%", "%"]
+          ]
+        },
+        { "type": "input_value", "name": "RightOperand", "check": "Number" }
+      ],
+      "output": "Number",
+      "colour": 230
+    },
+    {
+      "type": "LogicalOperation",
+      "message0": "%1 %2 %3",
+      "args0": [
+        { "type": "input_value", "name": "LeftOperand", "check": "Boolean" },
+        {
+          "type": "field_dropdown",
+          "name": "Operator",
+          "options": [["AND", "&&"], ["OR", "||"]]
+        },
+        { "type": "input_value", "name": "RightOperand", "check": "Boolean" }
+      ],
+      "output": "Boolean",
+      "colour": 290
+    },
+    {
+      "type": "ComparisonOperation",
+      "message0": "%1 %2 %3",
+      "args0": [
+        { "type": "input_value", "name": "LeftOperand" },
+        {
+          "type": "field_dropdown",
+          "name": "Operator",
+          "options": [
+            ["==", "=="], ["!=", "!="], ["<", "<"], ["<=", "<="], [">", ">"], [">=", ">="]
+          ]
+        },
+        { "type": "input_value", "name": "RightOperand" }
+      ],
+      "output": "Boolean",
+      "colour": 290
+    },
+    {
+      "type": "NotOperation",
+      "message0": "NOT %1",
+      "args0": [
+        { "type": "input_value", "name": "Operand", "check": "Boolean" }
+      ],
+      "output": "Boolean",
+      "colour": 290
+    },
+    {
+      "type": "IfStatement",
+      "message0": "if %1 %2",
+      "args0": [
+        { "type": "input_value", "name": "Condition", "check": "Boolean" },
+        { "type": "input_statement", "name": "Body" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 210
+    },
+    {
+      "type": "ElseStatement",
+      "message0": "else %1",
+      "args0": [
+        { "type": "input_statement", "name": "Body" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 210
+    },
+    {
+      "type": "ForLoop",
+      "message0": "for %1 in %2...%3 %4",
+      "args0": [
+        { "type": "field_variable", "name": "Variable", "variable": "i" },
+        { "type": "input_value", "name": "From", "check": "Number" },
+        { "type": "input_value", "name": "To", "check": "Number" },
+        { "type": "input_statement", "name": "Body" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 120
+    },
+    {
+      "type": "ForEachLoop",
+      "message0": "for %1 in %2 %3",
+      "args0": [
+        { "type": "field_variable", "name": "Item", "variable": "item" },
+        { "type": "input_value", "name": "Collection" },
+        { "type": "input_statement", "name": "Body" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 120
+    },
+    {
+      "type": "WhileLoop",
+      "message0": "while %1 %2",
+      "args0": [
+        { "type": "input_value", "name": "Condition", "check": "Boolean" },
+        { "type": "input_statement", "name": "Body" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 120
+    },
+    {
+      "type": "PrintStatement",
+      "message0": "print %1",
+      "args0": [
+        { "type": "input_value", "name": "Value" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 180
+    },
+    {
+      "type": "InputStatement",
+      "message0": "input as %1",
+      "args0": [
+        { "type": "field_dropdown",
+          "name": "Type",
+          "options": [["String", "String"], ["Int", "Int"], ["Double", "Double"]]
+        }
+      ],
+      "output": null,
+      "colour": 180
+    },
+    {
+      "type": "VariableDeclaration",
+      "message0": "let %1: %2 = %3",
+      "args0": [
+        { "type": "field_variable", "name": "Name", "variable": "var" },
+        {
+          "type": "field_dropdown",
+          "name": "Type",
+          "options": [
+            ["Int", "Int"], ["Double", "Double"], ["String", "String"], ["Bool", "Bool"]
+          ]
+        },
+        { "type": "input_value", "name": "Value" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 330
+    },
+    {
+      "type": "VariableAssignment",
+      "message0": "%1 = %2",
+      "args0": [
+        { "type": "field_variable", "name": "Variable", "variable": "var" },
+        { "type": "input_value", "name": "Value" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 330
+    },
+    {
+      "type": "VariableUsage",
+      "message0": "%1",
+      "args0": [
+        { "type": "field_variable", "name": "Variable", "variable": "var" }
+      ],
+      "output": null,
+      "colour": 330
+    },
+    {
+      "type": "ArrayDeclaration",
+      "message0": "[%1] as [%2]",
+      "args0": [
+        { "type": "input_statement", "name": "Elements" },
+        {
+          "type": "field_dropdown",
+          "name": "Type",
+          "options": [
+            ["Int", "Int"], ["Double", "Double"], ["String", "String"], ["Bool", "Bool"]
+          ]
+        }
+      ],
+      "output": "Array",
+      "colour": 260
+    },
+    {
+      "type": "ArrayAddElement",
+      "message0": "add %1 to %2",
+      "args0": [
+        { "type": "input_value", "name": "Element" },
+        { "type": "field_variable", "name": "Array", "variable": "array" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 260
+    },
+    {
+      "type": "ArrayRemoveElement",
+      "message0": "remove at %1 from %2",
+      "args0": [
+        { "type": "input_value", "name": "Index", "check": "Number" },
+        { "type": "field_variable", "name": "Array", "variable": "array" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 260
+    },
+    {
+      "type": "ArrayAccess",
+      "message0": "%1[%2]",
+      "args0": [
+        { "type": "field_variable", "name": "Array", "variable": "array" },
+        { "type": "input_value", "name": "Index", "check": "Number" }
+      ],
+      "output": null,
+      "colour": 260
+    },
+    {
+      "type": "FunctionDefinition",
+      "message0": "func %1(%2) -> %3 %4 %5",
+      "args0": [
+        { "type": "field_input", "name": "Name", "text": "function" },
+        { "type": "input_statement", "name": "Parameters" },
+        {
+          "type": "field_dropdown",
+          "name": "ReturnType",
+          "options": [
+            ["Void", "Void"], ["Int", "Int"], ["Double", "Double"], ["String", "String"], ["Bool", "Bool"]
+          ]
+        },
+        { "type": "input_dummy" },
+        { "type": "input_statement", "name": "Body" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 30
+    },
+    {
+      "type": "FunctionCall",
+      "message0": "%1(%2)",
+      "args0": [
+        { "type": "field_input", "name": "Name", "text": "function" },
+        { "type": "input_statement", "name": "Arguments" }
+      ],
+      "output": null,
+      "colour": 30
+    },
+    {
+      "type": "ReturnStatement",
+      "message0": "return %1",
+      "args0": [
+        { "type": "input_value", "name": "Value" }
+      ],
+      "previousStatement": null,
+      "colour": 30
+    },
+    {
+      "type": "ClassDeclaration",
+      "message0": "class %1 %2 %3",
+      "args0": [
+        { "type": "field_input", "name": "Name", "text": "MyClass" },
+        { "type": "input_dummy" },
+        { "type": "input_statement", "name": "Body" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 60
+    },
+    {
+      "type": "ObjectInstantiation",
+      "message0": "%1()",
+      "args0": [
+        { "type": "field_input", "name": "ClassName", "text": "MyClass" }
+      ],
+      "output": null,
+      "colour": 60
+    },
+    {
+      "type": "MethodDeclaration",
+      "message0": "func %1(%2) -> %3 %4",
+      "args0": [
+        { "type": "field_input", "name": "Name", "text": "method" },
+        { "type": "input_statement", "name": "Parameters" },
+        {
+          "type": "field_dropdown",
+          "name": "ReturnType",
+          "options": [
+            ["Void", "Void"], ["Int", "Int"], ["Double", "Double"], ["String", "String"], ["Bool", "Bool"]
+          ]
+        },
+        { "type": "input_statement", "name": "Body" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 60
+    },
+    {
+      "type": "PropertyAccess",
+      "message0": "%1.%2",
+      "args0": [
+        { "type": "field_variable", "name": "Object", "variable": "object" },
+        { "type": "field_input", "name": "Property", "text": "property" }
+      ],
+      "output": null,
+      "colour": 60
+    },
+    {
+      "type": "TryCatch",
+      "message0": "do %1 catch %2 %3",
+      "args0": [
+        { "type": "input_statement", "name": "TryBody" },
+        { "type": "field_input", "name": "ErrorName", "text": "error" },
+        { "type": "input_statement", "name": "CatchBody" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 200
+    },
+    {
+      "type": "ThrowStatement",
+      "message0": "throw %1",
+      "args0": [
+        { "type": "input_value", "name": "Error" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 200
+    },
+    {
+      "type": "SingleLineComment",
+      "message0": "// %1",
+      "args0": [
+        { "type": "field_input", "name": "Text", "text": "comment" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 90
+    },
+    {
+      "type": "MultiLineComment",
+      "message0": "/* %1 */",
+      "args0": [
+        { "type": "field_input", "name": "Text", "text": "comment" }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 90
+    }
+  ],
+  "toolbox": [
+    "<xml>",
+    "  <category name=\"Data Types\">",
+    "    <block type=\"Number\"></block>",
+    "    <block type=\"String\"></block>",
+    "    <block type=\"Boolean\"></block>",
+    "  </category>",
+    "  <category name=\"Variables\">",
+    "    <block type=\"VariableDeclaration\"></block>",
+    "    <block type=\"VariableAssignment\"></block>",
+    "    <block type=\"VariableUsage\"></block>",
+    "  </category>",
+    "  <category name=\"Operators\">",
+    "    <block type=\"ArithmeticOperation\"></block>",
+    "    <block type=\"ComparisonOperation\"></block>",
+    "    <block type=\"LogicalOperation\"></block>",
+    "    <block type=\"NotOperation\"></block>",
+    "  </category>",
+    "  <category name=\"Control Flow\">",
+    "    <block type=\"IfStatement\"></block>",
+    "    <block type=\"ElseStatement\"></block>",
+    "    <block type=\"ForLoop\"></block>",
+    "    <block type=\"ForEachLoop\"></block>",
+    "    <block type=\"WhileLoop\"></block>",
+    "  </category>",
+    "  <category name=\"Functions\">",
+    "    <block type=\"FunctionDefinition\"></block>",
+    "    <block type=\"FunctionCall\"></block>",
+    "    <block type=\"ReturnStatement\"></block>",
+    "  </category>",
+    "  <category name=\"Collections\">",
+    "    <block type=\"ArrayDeclaration\"></block>",
+    "    <block type=\"ArrayAddElement\"></block>",
+    "    <block type=\"ArrayRemoveElement\"></block>",
+    "    <block type=\"ArrayAccess\"></block>",
+    "  </category>",
+    "  <category name=\"OOP\">",
+    "    <block type=\"ClassDeclaration\"></block>",
+    "    <block type=\"ObjectInstantiation\"></block>",
+    "    <block type=\"MethodDeclaration\"></block>",
+    "    <block type=\"PropertyAccess\"></block>",
+    "  </category>",
+    "  <category name=\"Error Handling\">",
+    "    <block type=\"TryCatch\"></block>",
+    "    <block type=\"ThrowStatement\"></block>",
+    "  </category>",
+    "  <category name=\"I/O\">",
+    "    <block type=\"PrintStatement\"></block>",
+    "    <block type=\"InputStatement\"></block>",
+    "  </category>",
+    "  <category name=\"Comments\">",
+    "    <block type=\"SingleLineComment\"></block>",
+    "    <block type=\"MultiLineComment\"></block>",
+    "  </category>",
+    "</xml>"
+  ]
+}
