@@ -10,6 +10,7 @@
 
 ---
 Supported languages:
+
 - C#
 - C++
 - Dart
@@ -19,7 +20,12 @@ Supported languages:
 - Lua
 - PHP
 - Python
-- Rust  
+- Rust
+- Ruby
+- TypeScript
+- Kotlin
+- Swift
+
   _(Any language can be added via config files)_
 
 ---

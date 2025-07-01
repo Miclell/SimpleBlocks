@@ -18,7 +18,12 @@
 - Lua
 - PHP
 - Python
-- Rust  
+- Rust
+- Ruby
+- TypeScript
+- Kotlin
+- Swift
+
   _(Можно добавить любой язык через конфиги)_
 
 ---
